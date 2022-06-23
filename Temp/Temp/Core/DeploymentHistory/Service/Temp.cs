@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Temp.Core.Locations.Repository
+namespace Temp.Core.DeploymentHistory.Service
 {
     class Temp
     {

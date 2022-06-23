@@ -2,7 +2,7 @@
 
 namespace Temp.Core.Tags.Model
 {
-    class Tag
+    public class Tag
     {
         int id;
         VehicleType vehicleType;
@@ -34,7 +34,7 @@ namespace Temp.Core.Tags.Model
         public override string ToString()
         {
             return "Tag[id: " + id + ", vehicleType: " + vehicleType.ToString() +
-                ", licenceId: " + licenceId + "dinAccontBalance: " + dinAccontBalance + "]";
+                ", licenceId: " + licenceId + ", dinAccontBalance: " + dinAccontBalance + "]";
         }
     }
 }
