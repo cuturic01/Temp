@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using Temp.Core.Locations.Model;
 using Temp.Core.Tags.Model;
 
 namespace Temp.Core.Users.Model
