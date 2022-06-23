@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Temp.Core.Users.Repository
+namespace Temp.Core.Payments.Service
 {
-    class PersonRepo
+    class Temp
     {
     }
 }

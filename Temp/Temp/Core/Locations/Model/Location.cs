@@ -2,7 +2,7 @@
 
 namespace Temp.Core.Locations.Model
 {
-    class Location
+    public class Location
     {
         string zip;
         string name;

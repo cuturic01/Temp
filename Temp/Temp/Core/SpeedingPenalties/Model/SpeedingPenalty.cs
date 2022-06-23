@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Temp.Core.SpeedingPenalties.Model
 {
-    class SpeedingPenalty
+    public class SpeedingPenalty
     {
         int id;
         int paymentId;

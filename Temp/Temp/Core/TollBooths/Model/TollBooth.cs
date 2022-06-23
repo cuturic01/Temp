@@ -5,12 +5,12 @@ namespace Temp.Core.TollBooths.Model
     public class TollBooth
     {
         int tollStationId;
-        string number;
+        int number;
         TollBoothType tollBoothType;
 
         public TollBooth() { }
 
-        public TollBooth(int tollStationId, string number, TollBoothType tollBoothType)
+        public TollBooth(int tollStationId, int number, TollBoothType tollBoothType)
         {
             this.tollStationId = tollStationId;
             this.number = number;
@@ -21,7 +21,7 @@ namespace Temp.Core.TollBooths.Model
         public int TollStationId { get => tollStationId; set => tollStationId = value; }
 
         [JsonPropertyName("number")]
-        public string Number { get => number; set => number = value; }
+        public int Number { get => number; set => number = value; }
 
         [JsonPropertyName("tollBoothType")]
         public TollBoothType TollBoothType { get => tollBoothType; set => tollBoothType = value; }

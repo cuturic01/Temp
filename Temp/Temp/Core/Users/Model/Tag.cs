@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Temp.Core.Tags.Model
+namespace Temp.Core.Users.Model
 {
     public class Tag
     {

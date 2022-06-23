@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Temp.Core.Tags.Repository
+namespace Temp.Core.SpeedingPenalties.Service
 {
-    class TagRepo
+    class Temp
     {
     }
 }
