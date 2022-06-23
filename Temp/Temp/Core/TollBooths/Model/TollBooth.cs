@@ -29,7 +29,7 @@ namespace Temp.Core.TollBooths.Model
         public override string ToString()
         {
             return "TollBooth[tollStationId: " + tollStationId + ", number: " + number 
-                + "tollBoothType: " + tollBoothType + "]";
+                + ", tollBoothType: " + tollBoothType + "]";
         }
     }
 }

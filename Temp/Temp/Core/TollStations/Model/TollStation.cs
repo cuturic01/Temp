@@ -50,7 +50,7 @@ namespace Temp.Core.TollStations.Model
         public override string ToString()
         {
             return "TollStation[id: " + id + ", name: " + name +
-                ", bossJmbg: " + bossJmbg + "locationZip: " + locationZip +
+                ", bossJmbg: " + bossJmbg + ", locationZip: " + locationZip +
                 ", users: " + users + ", tollBooths: " + tollBooths + "]";
         }
     }

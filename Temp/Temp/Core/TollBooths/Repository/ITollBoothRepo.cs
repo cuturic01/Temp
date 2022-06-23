@@ -4,7 +4,7 @@ using Temp.Core.TollStations.Model;
 
 namespace Temp.Core.TollBooths.Repository
 {
-    interface ITollBoothRepo
+    public interface ITollBoothRepo
     {
         List<TollBooth> TollBooths { get; }
 

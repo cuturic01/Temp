@@ -1,0 +1,70 @@
+﻿[
+  {
+    "jmbg": "1001",
+    "name": "Milos",
+    "lastName": "Cuturic",
+    "phone": "062822654897",
+    "mail": "nbtno@aaa.com",
+    "adress": {
+      "street": "Aaaa, aaa",
+      "streetNumber": 10,
+      "locationZip": "1001"
+    },
+    "userType": 0,
+    "account": {
+      "username": "aaa",
+      "password": "123"
+    }
+  },
+  {
+    "jmbg": "1002",
+    "name": "Vukasin",
+    "lastName": "Bogdanovic",
+    "phone": "065851684",
+    "mail": "nbtno@bbb.com",
+    "adress": {
+      "street": "BBB, bbb",
+      "streetNumber": 11,
+      "locationZip": "1001"
+    },
+    "userType": 1,
+    "account": {
+      "username": "bbb",
+      "password": "123"
+    }
+  },
+  {
+    "jmbg": "1003",
+    "name": "Luka",
+    "lastName": "Djordjevic",
+    "phone": "0685546512",
+    "mail": "nbtno@ccc.com",
+    "adress": {
+      "street": "CC, cc",
+      "streetNumber": 12,
+      "locationZip": "1001"
+    },
+    "userType": 2,
+    "account": {
+      "username": "cc",
+      "password": "123"
+    }
+  },
+  {
+    "jmbg": "1004",
+    "name": "Tamara",
+    "lastName": "Dzambic",
+    "phone": "068574125",
+    "mail": "nbtno@ddd.com",
+    "adress": {
+      "street": "Ddd, dd",
+      "streetNumber": 13,
+      "locationZip": "1001"
+    },
+    "userType": 3,
+    "account": {
+      "username": "ddd",
+      "password": "123"
+    }
+  }
+]

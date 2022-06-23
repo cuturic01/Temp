@@ -25,7 +25,7 @@ namespace Temp.Core.Users.Model
         [JsonPropertyName("vehicleType")]
         public VehicleType VehicleType { get => vehicleType; set => vehicleType = value; }
 
-        [JsonPropertyName("licenceNumber")]
+        [JsonPropertyName("licenceId")]
         public string LicenceId { get => licenceId; set => licenceId = value; }
 
         [JsonPropertyName("dinAccontBalance")]

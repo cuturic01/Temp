@@ -35,7 +35,7 @@ namespace Temp.Core.SpeedingPenalties.Model
         public override string ToString()
         {
             return "SpeedingPenalty[id: " + id + ", paymentId: " + paymentId
-                + "date: " + date.ToString("dd-MM-yyyy") + ", overdraft" + overdraft + "]";
+                + ", date: " + date.ToString("dd-MM-yyyy") + ", overdraft: " + overdraft + "]";
         }
     }
 }

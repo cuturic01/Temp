@@ -30,7 +30,7 @@ namespace Temp.Core.DeploymentHistory.Model
         public override string ToString()
         {
             return "DeploymentHistoryRecord[bossJmbg: " + bossJmbg + ", tollStationId: " + tollStationId
-                + "deploymentDate: " + deploymentDate + "]";
+                + ", deploymentDate: " + deploymentDate + "]";
         }
     }
 }

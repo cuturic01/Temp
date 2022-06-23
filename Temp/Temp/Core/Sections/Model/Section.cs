@@ -34,7 +34,7 @@ namespace Temp.Core.Sections.Model
         public override string ToString()
         {
             return "Section[id: " + id + ", entranceStation: " + entranceStation
-                + "exitStation: " + exitStation + ", distance: " + distance + "]";
+                + ", exitStation: " + exitStation + ", distance: " + distance + "]";
         }
     }
 }

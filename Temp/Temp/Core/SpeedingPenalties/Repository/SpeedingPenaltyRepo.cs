@@ -5,14 +5,14 @@ using Temp.Core.SpeedingPenalties.Model;
 
 namespace Temp.Core.SpeedingPenalties.Repository
 {
-    public class SpeedingPenaltiesRepo : ISpeedingPenaltiesRepo
+    public class SpeedingPenaltyRepo : ISpeedingPenaltyRepo
     {
         List<SpeedingPenalty> speedingPenalties;
         string path;
 
         public List<SpeedingPenalty> SpeedingPenalties { get => speedingPenalties; }
 
-        public SpeedingPenaltiesRepo()
+        public SpeedingPenaltyRepo()
         {
             path = "../../../Data/SpeedingPenalties.json";
             Load();

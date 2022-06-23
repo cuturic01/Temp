@@ -34,7 +34,7 @@ namespace Temp.Core.PriceLists.Model
         public override string ToString()
         {
             return "Price[sectionId: " + sectionId + ", priceDin: " + priceDin
-                + "priceEur: " + priceEur + ", vehicleType: " + vehicleType + "]";
+                + ", priceEur: " + priceEur + ", vehicleType: " + vehicleType + "]";
         }
     }
 }

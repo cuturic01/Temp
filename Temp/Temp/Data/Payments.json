@@ -1,0 +1,12 @@
+﻿[
+  {
+    "id": 1001,
+    "entranceDate": "2022-06-05T13:00:00",
+    "exitDate": "2022-06-05T14:00:00",
+    "registrationNumber": "SM005BC",
+    "vehicleType": 0,
+    "stationId": 1002,
+    "boothNumber": 1,
+    "sectionId": 1001
+  }
+]

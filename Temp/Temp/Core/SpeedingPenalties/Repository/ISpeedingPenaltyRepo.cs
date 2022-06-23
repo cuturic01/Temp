@@ -3,7 +3,7 @@ using Temp.Core.SpeedingPenalties.Model;
 
 namespace Temp.Core.SpeedingPenalties.Repository
 {
-    public interface ISpeedingPenaltiesRepo
+    public interface ISpeedingPenaltyRepo
     {
         List<SpeedingPenalty> SpeedingPenalties { get; }
 

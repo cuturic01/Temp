@@ -1,0 +1,22 @@
+﻿[
+  {
+    "tollStationId": 1001,
+    "number": 1,
+    "tollBoothType": 0
+  },
+  {
+    "tollStationId": 1001,
+    "number": 2,
+    "tollBoothType": 1
+  },
+  {
+    "tollStationId": 1002,
+    "number": 1,
+    "tollBoothType": 0
+  },
+  {
+    "tollStationId": 1002,
+    "number": 2,
+    "tollBoothType": 1
+  }
+]

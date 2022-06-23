@@ -3,7 +3,7 @@ using Temp.Core.Sections.Model;
 
 namespace Temp.Core.Sections.Repository
 {
-    interface ISectionRepo
+    public interface ISectionRepo
     {
         List<Section> Sections { get; }
 

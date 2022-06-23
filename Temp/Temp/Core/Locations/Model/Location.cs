@@ -34,7 +34,7 @@ namespace Temp.Core.Locations.Model
         public override string ToString()
         {
             return "Location[zip: " + zip + ", name: " + name +
-                ", country: " + country + "municipality: " + municipality + "]";
+                ", country: " + country + ", municipality: " + municipality + "]";
         }
     }
 }

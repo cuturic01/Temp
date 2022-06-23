@@ -26,7 +26,7 @@ namespace Temp.Core.Users.Model
         public override string ToString()
         {
             return "User[jmbg: " + jmbg + ", name: " + name + ", lastName: " + lastName + ", phone: " + phone +
-                ", mail: " + mail + ", adress: " + adress.ToString() + ", userType" + userType.ToString()
+                ", mail: " + mail + ", adress: " + adress.ToString() + ", userType: " + userType.ToString()
                 + ", account: " + account.ToString() + "]";
         }
     }

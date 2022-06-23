@@ -16,7 +16,7 @@ namespace Temp.Core.Users.Model
         }
 
         [JsonPropertyName("tag")]
-        internal Tag Tag { get => tag; set => tag = value; }
+        public Tag Tag { get => tag; set => tag = value; }
 
         public override string ToString()
         {

@@ -34,7 +34,7 @@ namespace Temp.Core.PriceLists.Model
         public override string ToString()
         {
             return "PriceList[id: " + id + ", startDate: " + startDate
-                + "prices: " + prices + "]";
+                + ", prices: " + prices + "]";
         }
     }
 }
