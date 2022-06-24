@@ -5,12 +5,12 @@ namespace Temp
 {
     public partial class MainWindow : Window
     {
-        TollBoothDatabase tollStationDatabase;
+        ServiceBuilder serviceBuilder;
 
         public MainWindow()
         {
-            tollStationDatabase = new();
-            tollStationDatabase.printDatabase();
+            serviceBuilder = new();
+
             InitializeComponent();
         }
     }

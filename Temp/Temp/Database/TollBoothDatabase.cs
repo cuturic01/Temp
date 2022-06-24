@@ -24,7 +24,7 @@ namespace Temp
 
     public enum TollBoothType { MANUAL, AUOTOMATIC }
 
-    public enum UserType { CLERK, STATION_WORKER, MANAGER, ADMINISTRATOR, STATION_BOSS }
+    public enum UserType { CLERK, STATION_WORKER, MANAGER, ADMINISTRATOR, BOSS }
 }
 
 namespace Temp.Database
