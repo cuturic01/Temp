@@ -35,5 +35,10 @@ namespace Temp.GUI.Controller.Users
             userService.Serialize();
         }
 
+        public User Login(string username, string password)
+        {
+            return userService.Login(username, password);
+        }
+
     }
 }

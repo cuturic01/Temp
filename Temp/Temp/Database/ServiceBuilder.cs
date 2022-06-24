@@ -37,7 +37,7 @@ namespace Temp.Database
             tollStationService = new TollStationService(tollBoothDatabase.TollStationRepo);
             bossService = new BossService(tollBoothDatabase.BossRepo);
             tagUserService = new TagUserService(tollBoothDatabase.TagUserRepo);
-            userService = new UserService(tollBoothDatabase.UserRepo);
+            userService = new UserService(tollBoothDatabase.UserRepo, bossService);
         }
 
         public IDeploymentHisyoryService DeploymentHisyoryService { get => deploymentHisyoryService; }

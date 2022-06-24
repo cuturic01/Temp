@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Temp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="195" Width="413" FontWeight="Bold">
     <Grid>
+        <Button x:Name="loginBtn" Content="Login" HorizontalAlignment="Left" Margin="132,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,0.204" Height="32" Width="116" Click="LoginBtn_Click"/>
+        <TextBox x:Name="usernameTb"  HorizontalAlignment="Left" Margin="95,22,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Height="24" FontWeight="Normal"/>
+        <PasswordBox x:Name="passwordTb" HorizontalAlignment="Left" Margin="95,58,0,0" VerticalAlignment="Top" Width="266" Height="24" FontWeight="Normal"/>
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
