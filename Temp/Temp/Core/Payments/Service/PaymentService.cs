@@ -41,22 +41,19 @@ namespace Temp.Core.Payments.Service
             paymentRepo.Add(payment);
         }
 
-        public bool CheckSpeed(Payment payment, float distance)
+        public float CheckSpeed(Payment payment, float distance)
         {
-            int minTime = (payment.ExitDate - payment.EntranceDate).Minutes;
-            Console.WriteLine(minTime);
+            int myHours = (payment.ExitDate - payment.EntranceDate).Hours;
+            int myMinutes = (payment.ExitDate - payment.EntranceDate).Minutes;
+            float myTime = myHours * 60 + myMinutes;
 
             float speedLimit = 120 / 60;  //km per minut
-            float myTime = distance / speedLimit;
-            Console.WriteLine(myTime);
+            float minTime = distance / speedLimit;
 
 
-            if (myTime < minTime)
-            {
-                return true;
-            }
+            return minTime - myTime;
+   
 
-            return false;
         }
 
     }

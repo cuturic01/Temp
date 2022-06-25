@@ -17,6 +17,6 @@ namespace Temp.Core.Payments.Service
 
         void Serialize();
 
-        bool CheckSpeed(Payment payment, float distance);
+        float CheckSpeed(Payment payment, float distance);
     }
 }

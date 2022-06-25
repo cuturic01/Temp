@@ -41,7 +41,7 @@ namespace Temp.GUI.Controller.Payments
             paymentService.Serialize();
         }
 
-        public bool CheckSpeed(Payment payment, float distance)
+        public float CheckSpeed(Payment payment, float distance)
         {
             return paymentService.CheckSpeed(payment, distance);
         }

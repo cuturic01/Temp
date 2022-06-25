@@ -52,7 +52,7 @@ namespace Temp
             else if (user.UserType == UserType.CLERK)
             {
                 TollStation tollStation = tollStationController.FindByWorkerId(user.Jmbg);
-                ClerkWindow clerkWindow = new(tollStation);
+                ClerkWindow clerkWindow = new(tollStation, serviceBuilder);
                 clerkWindow.Show();
                 Close();
             }

@@ -48,6 +48,15 @@
     "stationId": 1001,
     "boothNumber": 1,
     "sectionId": 1001
+  },
+  {
+    "id": 1006,
+    "entranceDate": "2022-06-25T17:00:00+02:00",
+    "exitDate": "2022-06-25T17:26:51.0513307+02:00",
+    "registrationNumber": "SM329AA",
+    "vehicleType": 1,
+    "stationId": 1001,
+    "boothNumber": 1,
+    "sectionId": 1001
   }
-
 ]
