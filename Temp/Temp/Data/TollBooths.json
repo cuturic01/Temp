@@ -2,21 +2,25 @@
   {
     "tollStationId": 1001,
     "number": 1,
-    "tollBoothType": 0
+    "tollBoothType": 0,
+    "malfunctioning": false
   },
   {
     "tollStationId": 1001,
     "number": 2,
-    "tollBoothType": 1
+    "tollBoothType": 1,
+    "malfunctioning": false
   },
   {
     "tollStationId": 1002,
     "number": 1,
-    "tollBoothType": 0
+    "tollBoothType": 0,
+    "malfunctioning": false
   },
   {
     "tollStationId": 1002,
     "number": 2,
-    "tollBoothType": 1
+    "tollBoothType": 1,
+    "malfunctioning": false
   }
 ]

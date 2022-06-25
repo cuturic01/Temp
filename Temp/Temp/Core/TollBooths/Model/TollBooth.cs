@@ -7,14 +7,16 @@ namespace Temp.Core.TollBooths.Model
         int tollStationId;
         int number;
         TollBoothType tollBoothType;
+        bool malfunctioning;
 
         public TollBooth() { }
 
-        public TollBooth(int tollStationId, int number, TollBoothType tollBoothType)
+        public TollBooth(int tollStationId, int number, TollBoothType tollBoothType, bool malfunctioning)
         {
             this.tollStationId = tollStationId;
             this.number = number;
             this.tollBoothType = tollBoothType;
+            this.malfunctioning = malfunctioning;
         }
 
         [JsonPropertyName("tollStationId")]
@@ -26,10 +28,13 @@ namespace Temp.Core.TollBooths.Model
         [JsonPropertyName("tollBoothType")]
         public TollBoothType TollBoothType { get => tollBoothType; set => tollBoothType = value; }
 
+        [JsonPropertyName("malfunctioning")]
+        public bool Malfunctioning { get => malfunctioning; set => malfunctioning = value; }
+
         public override string ToString()
         {
-            return "TollBooth[tollStationId: " + tollStationId + ", number: " + number 
-                + ", tollBoothType: " + tollBoothType + "]";
+            return "TollBooth[tollStationId: " + tollStationId + ", number: " + number
+                + ", tollBoothType: " + tollBoothType + ", malfunctioning: " + malfunctioning.ToString() + "]";
         }
     }
 }
