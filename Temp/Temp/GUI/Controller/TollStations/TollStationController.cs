@@ -39,5 +39,10 @@ namespace Temp.GUI.Controller.TollStations
         {
             tollStationService.Serialize();
         }
+
+        public TollStation FindByWorkerId(string id)
+        {
+            return tollStationService.FindByWorkerId(id);
+        }
     }
 }

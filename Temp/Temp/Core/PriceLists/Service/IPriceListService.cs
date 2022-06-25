@@ -16,5 +16,7 @@ namespace Temp.Core.PriceLists.Service
         void Load();
 
         void Serialize();
+
+        Price GetPriceBySectionId(int sectionId, VehicleType vt);
     }
 }

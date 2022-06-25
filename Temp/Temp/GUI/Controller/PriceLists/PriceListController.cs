@@ -39,5 +39,10 @@ namespace Temp.GUI.Controller.PriceLists
         {
             priceListService.Serialize();
         }
+
+        public Price GetPriceBySectionId(int sectionId, VehicleType vt)
+        {
+            return priceListService.GetPriceBySectionId(sectionId, vt);
+        }
     }
 }

@@ -39,5 +39,10 @@ namespace Temp.GUI.Controller.Sections
         {
             sectionService.Serialize();
         }
+
+        public Section GetSectionByStations(int entranceId, int exitId)
+        {
+            return sectionService.GetSectionByStations(entranceId, exitId);
+        }
     }
 }

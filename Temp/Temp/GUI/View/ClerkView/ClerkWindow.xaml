@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Temp.GUI.View.ClerkView"
         mc:Ignorable="d"
-        Title="ClerkWindow" Height="450" Width="800">
+        Title="ClerkWindow" Height="430" Width="800">
     <Grid>
-        
+        <Label Content="Exit station" HorizontalAlignment="Left" Margin="50,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.561,-1.189"/>
+        <TextBlock Name="ExitStationText" HorizontalAlignment="Left" Margin="160,30,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+
+        <Label Content="Entrance station" HorizontalAlignment="Left" Margin="50,60,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="StationsComboBox" HorizontalAlignment="Left" Margin="160,60,0,0" VerticalAlignment="Top" Width="126"/>
+
+        <Label Content="Entrance time" HorizontalAlignment="Left" Margin="50,90,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="EntranceHourBox" HorizontalAlignment="Left" Margin="160,90,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <TextBox Name="EntranceMinBox" HorizontalAlignment="Left" Margin="223,90,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+
+        <Label Content="Vehicle type" HorizontalAlignment="Left" Margin="50,120,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="VehiclesComboBox" HorizontalAlignment="Left" Margin="160,120,0,0" VerticalAlignment="Top" Width="126"/>
+
+
+        <Button Content="Calculate price" HorizontalAlignment="Left" Margin="50,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.782,-0.494" Width="236" Click="CalculateBtn_Click"/>
+
+        <Label Content="Price" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="PriceText" HorizontalAlignment="Left" Margin="160,200,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.028,-0.868" Width="126"/>
+
+        <Label Content="Paid" HorizontalAlignment="Left" Margin="50,230,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="PaidBox" HorizontalAlignment="Left" Margin="160,230,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="126"/>
+
+        <Button Content="Charge" HorizontalAlignment="Left" Margin="50,270,0,0" VerticalAlignment="Top" Width="236" Click="ChargeBtn_Click"/>
+
+        <Label Content="Change" HorizontalAlignment="Left" Margin="50,310,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.851,0.337"/>
+        <TextBlock Name="ChangeText" HorizontalAlignment="Left" Margin="160,310,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.012,0.497" Width="126"/>
+
+        <Label Content="Speep" HorizontalAlignment="Left" Margin="50,340,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.851,0.337"/>
+        <TextBlock Name="SpeedText" HorizontalAlignment="Left" Margin="160,340,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="1.012,0.497" Width="126"/>
+
+
     </Grid>
 </Window>

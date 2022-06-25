@@ -29,7 +29,7 @@ namespace Temp.GUI.Controller.Payments
         {
             return paymentService.GenerateId();
         }
-
+       
         public void Load()
         {
             paymentService.Load();
@@ -39,6 +39,11 @@ namespace Temp.GUI.Controller.Payments
         public void Serialize()
         {
             paymentService.Serialize();
+        }
+
+        public bool CheckSpeed(Payment payment, float distance)
+        {
+            return paymentService.CheckSpeed(payment, distance);
         }
     }
 }

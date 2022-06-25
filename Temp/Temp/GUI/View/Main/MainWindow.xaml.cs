@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using Temp.Core.Users.Model;
+using Temp.Core.TollStations.Model;
 using Temp.Database;
 using Temp.GUI.Controller.Users;
+using Temp.GUI.Controller.TollStations;
 using Temp.GUI.View.AdministratorView;
 using Temp.GUI.View.BossView;
 using Temp.GUI.View.ClerkView;
@@ -14,12 +16,13 @@ namespace Temp
     {
         ServiceBuilder serviceBuilder;
         UserController userController;
+        TollStationController tollStationController;
 
         public MainWindow()
         {
             serviceBuilder = new();
             userController = new(serviceBuilder.UserService);
-
+            tollStationController = new(serviceBuilder.TollStationService);
             InitializeComponent();
         }
 
@@ -48,7 +51,8 @@ namespace Temp
             }
             else if (user.UserType == UserType.CLERK)
             {
-                ClerkWindow clerkWindow = new();
+                TollStation tollStation = tollStationController.FindByWorkerId(user.Jmbg);
+                ClerkWindow clerkWindow = new(tollStation);
                 clerkWindow.Show();
                 Close();
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Temp.Core.Payments.Model;
 using Temp.Core.Payments.Repository;
+using System;
 
 namespace Temp.Core.Payments.Service
 {
@@ -39,5 +40,24 @@ namespace Temp.Core.Payments.Service
         {
             paymentRepo.Add(payment);
         }
+
+        public bool CheckSpeed(Payment payment, float distance)
+        {
+            int minTime = (payment.ExitDate - payment.EntranceDate).Minutes;
+            Console.WriteLine(minTime);
+
+            float speedLimit = 120 / 60;  //km per minut
+            float myTime = distance / speedLimit;
+            Console.WriteLine(myTime);
+
+
+            if (myTime < minTime)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }

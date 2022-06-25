@@ -39,5 +39,14 @@ namespace Temp.Core.TollStations.Service
         {
             tollStationRepo.Serialize();
         }
+
+        public TollStation FindByWorkerId(string id)
+        {
+            foreach( TollStation station in TollStations)
+                foreach(string workerId in station.Users)
+                    if (workerId == id)
+                        return station;
+            return null;
+        }
     }
 }

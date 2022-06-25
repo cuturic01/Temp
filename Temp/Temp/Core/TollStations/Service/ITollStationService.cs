@@ -16,5 +16,7 @@ namespace Temp.Core.TollStations.Service
         void Load();
 
         void Serialize();
+
+        TollStation FindByWorkerId(string id);
     }
 }
