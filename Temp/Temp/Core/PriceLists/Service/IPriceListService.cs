@@ -18,5 +18,7 @@ namespace Temp.Core.PriceLists.Service
         void Serialize();
 
         Price GetPriceBySectionId(int sectionId, VehicleType vt);
+
+        List<PriceList> SortedByStartDate();
     }
 }

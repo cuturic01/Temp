@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Temp.Core.PriceLists.Model;
 using Temp.Core.PriceLists.Repository;
 
@@ -52,5 +54,18 @@ namespace Temp.Core.PriceLists.Service
             return null;
         }
 
+        public List<PriceList> SortedByStartDate()
+        {
+            return priceListRepo.PriceLists.OrderByDescending(x => x.StartDate).ToList();
+        }
+
+        public PriceList GetActive(DateTime date)
+        {
+            foreach (PriceList priceList in priceListRepo.PriceLists)
+            {
+                if (priceList.StartDate <= date) return priceList;
+            }
+            return null;
+        }
     }
 }
