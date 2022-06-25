@@ -1,14 +1,14 @@
-﻿[
+[
   {
     "id": 1001,
     "name": "RampA",
-    "malfunctioning": false,
+    "malfunctioning": true,
     "deviceType": 0
   },
   {
     "id": 1002,
     "name": "SemaphoreA",
-    "malfunctioning": false,
+    "malfunctioning": true,
     "deviceType": 1
   },
   {

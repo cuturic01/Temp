@@ -16,5 +16,7 @@ namespace Temp.Core.Devices.Service
         void Load();
 
         void Serialize();
+
+        void SetMalfunctionig(int deviceId, bool malfunctioning);
     }
 }

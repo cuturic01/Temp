@@ -13,7 +13,9 @@ using Temp.GUI.Controller.Sections;
 using Temp.GUI.Controller.PriceLists;
 using Temp.GUI.Controller.Payments;
 using Temp.GUI.Controller.SpeedingPenalties;
-
+using Temp.GUI.Controller.Devices;
+using Temp.Core.Devices.Model;
+using Temp.GUI.Controller.TollBooths;
 
 namespace Temp.GUI.View.ClerkView
 {
@@ -24,12 +26,18 @@ namespace Temp.GUI.View.ClerkView
         PriceListController priceListController;
         PaymentController paymentController;
         SpeedingPenaltyController speedingPenaltyController;
+        DeviceController deviceController;
+        TollBoothController tollBoothController;
         
         TollStation station;
         Payment payment;
         float speed;
         BrushConverter bc;
 
+        Dictionary<string, bool> rampStatusDisplay;
+        Dictionary<string, Device> rampDisplay;
+        Dictionary<string, bool> deviceStatusDisplay;
+        Dictionary<string, Device> deviceDisplay; 
 
         public ClerkWindow(TollStation _station, ServiceBuilder serviceBuilder)
         {
@@ -38,6 +46,8 @@ namespace Temp.GUI.View.ClerkView
             priceListController = new(serviceBuilder.PriceListService);
             paymentController = new(serviceBuilder.PaymentService);
             speedingPenaltyController = new(serviceBuilder.SpeedingPenaltyService);
+            deviceController = new(serviceBuilder.DeviceService);
+            tollBoothController = new(serviceBuilder.TollBoothService);
             bc = new BrushConverter();
 
             station = _station;
@@ -52,10 +62,75 @@ namespace Temp.GUI.View.ClerkView
                 StationsComboBox.Items.Add(new KeyValuePair<int, string>(tollStation.Id, tollStation.Name));
             }
 
-
             foreach(string name in Enum.GetNames(typeof(VehicleType)))
             {
                 VehiclesComboBox.Items.Add(name);
+            }
+
+            InitializeRampStatusComboBox();
+            RampStatusBtn.IsEnabled = false;
+            InitializeRamps();
+
+            InitializeDeviceStatusComboBox();
+            DeviceStatusBtn.IsEnabled = false;
+            InitializeDevices();
+        }
+
+        private void InitializeRampStatusComboBox()
+        {
+            rampStatusDisplay = new Dictionary<string, bool>();
+            rampStatusDisplay.Add("Functioning", false);
+            rampStatusDisplay.Add("Malfunctioning", true);
+
+            RampStatusComboBox.Items.Add("Functioning");
+            RampStatusComboBox.Items.Add("Malfunctioning");
+        }
+
+        private void InitializeRamps()
+        {
+            RampStatusList.Items.Clear();
+            rampDisplay = new Dictionary<string, Device>();
+            foreach (int boothNum in station.TollBooths)
+            {
+                Device ramp = tollBoothController.FindBoothRamp(station.Id, boothNum);
+                string functioning = "functioning";
+                if (ramp.Malfunctioning)
+                    functioning = "malfunctioning";
+                string display = "booth: " + boothNum + ", " + ramp.Name + " - " + functioning;
+                RampStatusList.Items.Add(display);
+                rampDisplay.Add(display, ramp);
+            }
+        }
+
+        private void InitializeDeviceStatusComboBox()
+        {
+            deviceStatusDisplay = new Dictionary<string, bool>();
+            deviceStatusDisplay.Add("Functioning", false);
+            deviceStatusDisplay.Add("Malfunctioning", true);
+
+            DeviceStatusComboBox.Items.Add("Functioning");
+            DeviceStatusComboBox.Items.Add("Malfunctioning");
+        }
+
+        private void InitializeDevices()
+        {
+            DeviceStatusList.Items.Clear();
+            deviceDisplay = new Dictionary<string, Device>();
+            foreach (int boothNum in station.TollBooths)
+            {
+                List<Device> devices = tollBoothController.DevicesByBooth(station.Id, boothNum);
+                foreach (Device device in devices)
+                {
+                    if (device.DeviceType != DeviceType.RAMP)
+                    {
+                        string functioning = "functioning";
+                        if (device.Malfunctioning)
+                            functioning = "malfunctioning";
+                        string display = "booth: " + boothNum + ", " + device.Name + " - " + functioning;
+                        DeviceStatusList.Items.Add(display);
+                        deviceDisplay.Add(display, device);
+                    }
+                }
             }
         }
 
@@ -115,6 +190,68 @@ namespace Temp.GUI.View.ClerkView
 
             ChangeText.Text = change.ToString();
 
+        }
+
+        private void RampStatusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Device ramp = rampDisplay[RampStatusList.SelectedItem.ToString()];
+            bool malfunctioning = rampStatusDisplay[RampStatusComboBox.SelectedItem.ToString()];
+            deviceController.SetMalfunctionig(ramp.Id, malfunctioning);
+
+            MessageBox.Show("Ramp status updated");
+            InitializeRamps();
+        }
+
+        private void RampStatusList_SelectionChanged(object sender, 
+            System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (RampStatusList.SelectedIndex != -1)
+            {
+                RampStatusBtn.IsEnabled = true;
+                Device ramp = rampDisplay[RampStatusList.SelectedItem.ToString()];
+                if (ramp.Malfunctioning)
+                {
+                    RampStatusComboBox.SelectedItem = "Malfunctioning";
+                    return;
+                }
+                RampStatusComboBox.SelectedItem = "Functioning";
+            }
+        }
+
+        private void DeviceStatusList_SelectionChanged(object sender, 
+            System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (DeviceStatusList.SelectedIndex != -1)
+            {
+                DeviceStatusBtn.IsEnabled = true;
+                Device device = deviceDisplay[DeviceStatusList.SelectedItem.ToString()];
+                if (device.Malfunctioning)
+                {
+                    DeviceStatusComboBox.SelectedItem = "Malfunctioning";
+                    return;
+                }
+                DeviceStatusComboBox.SelectedItem = "Functioning";
+            }
+        }
+
+        private void DeviceStatusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Device device = deviceDisplay[DeviceStatusList.SelectedItem.ToString()];
+            bool malfunctioning = deviceStatusDisplay[DeviceStatusComboBox.SelectedItem.ToString()];
+            deviceController.SetMalfunctionig(device.Id, malfunctioning);
+
+            MessageBox.Show("Device status updated");
+            InitializeDevices();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Log out?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+            }
+            else e.Cancel = true;
         }
     }
 }

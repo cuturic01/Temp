@@ -39,5 +39,13 @@ namespace Temp.Core.Devices.Service
         {
             deviceRepo.Serialize();
         }
+
+        public void SetMalfunctionig(int deviceId, bool malfunctioning)
+        {
+            Device device = FindById(deviceId);
+            device.Malfunctioning = malfunctioning;
+            Serialize();
+        }
+
     }
 }

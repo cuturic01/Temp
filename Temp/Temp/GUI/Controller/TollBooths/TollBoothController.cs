@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Temp.Core.Devices.Model;
 using Temp.Core.TollBooths.Model;
 using Temp.Core.TollBooths.Service;
 using Temp.Core.TollStations.Model;
@@ -39,6 +40,16 @@ namespace Temp.GUI.Controller.TollBooths
         public void Serialize()
         {
             tollBoothService.Serialize();
+        }
+
+        public Device FindBoothRamp(int stationId, int boothId)
+        {
+            return tollBoothService.FindBoothRamp(stationId, boothId);
+        }
+
+        public List<Device> DevicesByBooth(int stationId, int boothNumber)
+        {
+            return tollBoothService.DevicesByBooth(stationId, boothNumber);
         }
     }
 }
