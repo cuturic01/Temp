@@ -3,24 +3,28 @@
     "tollStationId": 1001,
     "number": 1,
     "tollBoothType": 0,
-    "malfunctioning": false
+    "malfunctioning": false,
+    "devices": [ 1001, 1002, 1003 ]
   },
   {
     "tollStationId": 1001,
     "number": 2,
     "tollBoothType": 1,
-    "malfunctioning": false
+    "malfunctioning": false,
+    "devices": [1004, 1005, 1006]
   },
   {
     "tollStationId": 1002,
     "number": 1,
     "tollBoothType": 0,
-    "malfunctioning": false
+    "malfunctioning": false,
+    "devices": [ 1007, 1008, 1009 ]
   },
   {
     "tollStationId": 1002,
     "number": 2,
     "tollBoothType": 1,
-    "malfunctioning": false
+    "malfunctioning": false,
+    "devices": [ 1010, 1011, 1012 ]
   }
 ]
