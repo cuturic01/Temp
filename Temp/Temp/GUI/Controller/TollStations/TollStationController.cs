@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Temp.Core.TollStations.Model;
 using Temp.Core.TollStations.Service;
+using Temp.Core.Users.Model;
 
 namespace Temp.GUI.Controller.TollStations
 {
@@ -43,6 +44,11 @@ namespace Temp.GUI.Controller.TollStations
         public TollStation FindByWorkerId(string id)
         {
             return tollStationService.FindByWorkerId(id);
+        }
+
+        public List<Boss> AvailableBosses()
+        {
+            return tollStationService.AvailableBosses();
         }
     }
 }

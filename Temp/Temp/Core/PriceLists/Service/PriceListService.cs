@@ -61,7 +61,7 @@ namespace Temp.Core.PriceLists.Service
 
         public PriceList GetActive(DateTime date)
         {
-            foreach (PriceList priceList in priceListRepo.PriceLists)
+            foreach (PriceList priceList in SortedByStartDate())
             {
                 if (priceList.StartDate <= date) return priceList;
             }

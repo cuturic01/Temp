@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Temp.Core.PriceLists.Model;
 
 namespace Temp.Core.PriceLists.Service
@@ -20,5 +21,7 @@ namespace Temp.Core.PriceLists.Service
         Price GetPriceBySectionId(int sectionId, VehicleType vt);
 
         List<PriceList> SortedByStartDate();
+
+        PriceList GetActive(DateTime date);
     }
 }
