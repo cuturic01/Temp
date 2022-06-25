@@ -1,6 +1,8 @@
 ﻿using System;
 using Temp.Core.DeploymentHistory.Model;
 using Temp.Core.DeploymentHistory.Repository;
+using Temp.Core.Devices.Model;
+using Temp.Core.Devices.Repository;
 using Temp.Core.Locations.Model;
 using Temp.Core.Locations.Repository;
 using Temp.Core.Payments.Model;
@@ -25,6 +27,8 @@ namespace Temp
     public enum TollBoothType { MANUAL, AUOTOMATIC }
 
     public enum UserType { CLERK, STATION_WORKER, MANAGER, ADMINISTRATOR, BOSS }
+
+    public enum DeviceType { RAMP, SEMAPHORE, TAG_READER }
 }
 
 namespace Temp.Database
@@ -32,6 +36,7 @@ namespace Temp.Database
     public class TollBoothDatabase
     {
         IDeploymentHistoryRepo deploymentHistoryRepo;
+        IDeviceRepo deviceRepo;
         ILocationRepo locationRepo;
         IPaymentRepo paymentRepo;
         IPriceListRepo priceListRepo;
@@ -46,6 +51,7 @@ namespace Temp.Database
         public TollBoothDatabase()
         {
             deploymentHistoryRepo = new DeploymentHistoryRepo();
+            deviceRepo = new DeviceRepo();
             locationRepo = new LocationRepo();
             paymentRepo = new PaymentRepo();
             priceListRepo = new PriceListRepo();
@@ -59,6 +65,8 @@ namespace Temp.Database
         }
 
         public IDeploymentHistoryRepo DeploymentHistoryRepo { get => deploymentHistoryRepo; }
+
+        public IDeviceRepo DeviceRepo { get => deviceRepo; set => deviceRepo = value; }
 
         public ILocationRepo LocationRepo { get => locationRepo; }
 
@@ -85,6 +93,11 @@ namespace Temp.Database
             Console.WriteLine("Deploment Hystory:");
             foreach (DeploymentHistoryRecord deploymentHistoryRecord in deploymentHistoryRepo.DeploymentHistoryRecords)
                 Console.WriteLine(deploymentHistoryRecord);
+            Console.WriteLine("-------------------------------------------------------------------------------------");
+
+            Console.WriteLine("Devices:");
+            foreach (Device device in deviceRepo.Devices)
+                Console.WriteLine(device);
             Console.WriteLine("-------------------------------------------------------------------------------------");
 
             Console.WriteLine("Locations:");

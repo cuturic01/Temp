@@ -28,6 +28,9 @@ namespace Temp
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+            TollBoothDatabase db = new();
+            db.printDatabase();
+
             string username = usernameTb.Text;
             string password = passwordTb.Password;
 

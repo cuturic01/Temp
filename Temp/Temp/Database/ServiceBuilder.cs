@@ -1,4 +1,5 @@
 ﻿using Temp.Core.DeploymentHistory.Service;
+using Temp.Core.Devices.Service;
 using Temp.Core.Locations.Service;
 using Temp.Core.Payments.Service;
 using Temp.Core.PriceLists.Service;
@@ -13,6 +14,7 @@ namespace Temp.Database
     public class ServiceBuilder
     {
         IDeploymentHisyoryService deploymentHisyoryService;
+        IDeviceService deviceService;
         ILocationService locationService;
         IPaymentService paymentService;
         IPriceListService priceListService;
@@ -28,6 +30,7 @@ namespace Temp.Database
         {
             TollBoothDatabase tollBoothDatabase = new();
             deploymentHisyoryService = new DeploymentHisyoryService(tollBoothDatabase.DeploymentHistoryRepo);
+            deviceService = new DeviceService(tollBoothDatabase.DeviceRepo);
             locationService = new LocationService(tollBoothDatabase.LocationRepo);
             paymentService = new PaymentService(tollBoothDatabase.PaymentRepo);
             priceListService = new PriceListService(tollBoothDatabase.PriceListRepo);

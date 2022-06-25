@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Media;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Temp.Core.TollStations.Model;
 using Temp.Core.Sections.Model;
@@ -11,7 +8,6 @@ using Temp.Core.PriceLists.Model;
 using Temp.Core.Payments.Model;
 using Temp.Core.SpeedingPenalties.Model;
 using Temp.Database;
-using Temp.GUI.Controller.Users;
 using Temp.GUI.Controller.TollStations;
 using Temp.GUI.Controller.Sections;
 using Temp.GUI.Controller.PriceLists;
@@ -21,9 +17,6 @@ using Temp.GUI.Controller.SpeedingPenalties;
 
 namespace Temp.GUI.View.ClerkView
 {
-    /// <summary>
-    /// Interaction logic for ClerkWindow.xaml
-    /// </summary>
     public partial class ClerkWindow : Window
     {
         TollStationController tollStationController;
