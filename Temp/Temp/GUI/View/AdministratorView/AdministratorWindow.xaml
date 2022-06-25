@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="AdministratorWindow" Height="450" Width="800">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Price List" FontSize="18" FontWeight="Bold">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Price list is active since: " HorizontalAlignment="Left" Margin="36,25,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="startDateLbl" Content="Label" HorizontalAlignment="Left" Margin="253,25,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+                    <ComboBox x:Name="sectionCb" HorizontalAlignment="Left" Margin="175,116,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="sectionCb_SelectionChanged"/>
+                    <Label Content="Choose section: " HorizontalAlignment="Left" Margin="23,112,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Entry" HorizontalAlignment="Left" Margin="142,204,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Exit" HorizontalAlignment="Left" Margin="149,310,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="entryTb" HorizontalAlignment="Left" Margin="92,243,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+                    <TextBox x:Name="exitTb" HorizontalAlignment="Left" Margin="92,344,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+                    <ListBox x:Name="priceInformationLb" Margin="378,10,10,10"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Toll Station" FontSize="18" FontWeight="Bold">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

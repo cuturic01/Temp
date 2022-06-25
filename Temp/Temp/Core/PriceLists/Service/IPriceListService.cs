@@ -23,5 +23,7 @@ namespace Temp.Core.PriceLists.Service
         List<PriceList> SortedByStartDate();
 
         PriceList GetActive(DateTime date);
+
+        List<Price> GetPricesBySection(int sectionId);
     }
 }

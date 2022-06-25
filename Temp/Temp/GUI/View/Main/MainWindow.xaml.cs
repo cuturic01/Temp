@@ -42,7 +42,7 @@ namespace Temp
             }
             else if (user.UserType == UserType.ADMINISTRATOR)
             {
-                AdministratorWindow administratorWindow = new();
+                AdministratorWindow administratorWindow = new(serviceBuilder);
                 administratorWindow.Show();
                 Close();
             }

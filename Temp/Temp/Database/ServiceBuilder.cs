@@ -37,8 +37,8 @@ namespace Temp.Database
             sectionService = new SectionService(tollBoothDatabase.SectionRepo);
             speedingPenaltyService = new SpeedingPenaltyService(tollBoothDatabase.SpeedingPenaltyRepo);
             tollBoothService = new TollBoothService(tollBoothDatabase.TollBoothRepo);
-            tollStationService = new TollStationService(tollBoothDatabase.TollStationRepo);
             bossService = new BossService(tollBoothDatabase.BossRepo);
+            tollStationService = new TollStationService(tollBoothDatabase.TollStationRepo, bossService);
             tagUserService = new TagUserService(tollBoothDatabase.TagUserRepo);
             userService = new UserService(tollBoothDatabase.UserRepo, bossService);
         }

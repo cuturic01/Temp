@@ -50,5 +50,10 @@ namespace Temp.GUI.Controller.PriceLists
         {
             return priceListService.GetActive(date);
         }
+
+        public List<Price> GetPricesBySection(int sectionId)
+        {
+            return priceListService.GetPricesBySection(sectionId);
+        }
     }
 }

@@ -17,5 +17,7 @@ namespace Temp.Core.TollBooths.Service
         void Load();
 
         void Serialize();
+
+        void Fix(TollBooth tollBooth);
     }
 }

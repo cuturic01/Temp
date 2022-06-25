@@ -39,5 +39,11 @@ namespace Temp.Core.Devices.Service
         {
             deviceRepo.Serialize();
         }
+
+        public void Fix(Device device)
+        {
+            device.Malfunctioning = false;
+            Serialize();
+        }
     }
 }

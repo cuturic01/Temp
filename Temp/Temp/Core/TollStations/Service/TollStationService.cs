@@ -106,5 +106,6 @@ namespace Temp.Core.TollStations.Service
             Serialize();
             // pozvati metodu za brisanje naplatnih mesta
         }
+
     }
 }

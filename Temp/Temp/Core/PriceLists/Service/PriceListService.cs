@@ -67,5 +67,16 @@ namespace Temp.Core.PriceLists.Service
             }
             return null;
         }
+
+        public List<Price> GetPricesBySection(int sectionId)
+        {
+            PriceList activePriceList = GetActive(DateTime.Today);
+            List<Price> prices = new();
+            foreach (Price price in activePriceList.Prices)
+            {
+                if (price.SectionId == sectionId) prices.Add(price);
+            }
+            return prices;
+        }
     }
 }

@@ -32,6 +32,12 @@
         "priceDin": 1200,
         "priceEur": 10,
         "vehicleType": 4
+      },
+      {
+        "sectionId": 1002,
+        "priceDin": 1800,
+        "priceEur": 15,
+        "vehicleType": 4
       }
     ]
   }

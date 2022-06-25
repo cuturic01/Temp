@@ -40,5 +40,11 @@ namespace Temp.Core.TollBooths.Service
         {
             tollBoothRepo.Serialize();
         }
+
+        public void Fix(TollBooth tollBooth)
+        {
+            tollBooth.Malfunctioning = false;
+            Serialize();
+        }
     }
 }
