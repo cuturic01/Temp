@@ -19,5 +19,9 @@ namespace Temp.Core.TollBooths.Service
         void Serialize();
 
         void Fix(TollBooth tollBooth);
+
+        public void CheckForFixing(TollBooth tollBooth);
+
+        public List<TollBooth> GetAllFromStation(TollStation tollStation);
     }
 }

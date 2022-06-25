@@ -50,5 +50,10 @@ namespace Temp.GUI.Controller.TollStations
         {
             return tollStationService.AvailableBosses();
         }
+
+        public TollStation FindByBoss(string jmbg)
+        {
+            return tollStationService.FindByBoss(jmbg);
+        }
     }
 }

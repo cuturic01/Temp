@@ -48,7 +48,7 @@ namespace Temp
             }
             else if (user.UserType == UserType.BOSS)
             {
-                BossWindow bossWindow = new();
+                BossWindow bossWindow = new(serviceBuilder, user);
                 bossWindow.Show();
                 Close();
             }

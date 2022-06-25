@@ -18,5 +18,7 @@ namespace Temp.Core.Devices.Service
         void Serialize();
 
         void Fix(Device device);
+
+        public List<Device> GetAllFromTollBooth(List<int> deviceIds);
     }
 }

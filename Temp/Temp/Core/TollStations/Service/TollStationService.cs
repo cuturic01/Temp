@@ -107,5 +107,10 @@ namespace Temp.Core.TollStations.Service
             // pozvati metodu za brisanje naplatnih mesta
         }
 
+        public TollStation FindByBoss(string jmbg)
+        {
+            return TollStations.Single(x => x.BossJmbg == jmbg);
+        }
+
     }
 }

@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="BossWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label x:Name="stationLbl" Content="Label" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Toll booth" HorizontalAlignment="Left" Margin="209,107,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <ComboBox x:Name="tollBoothCb" HorizontalAlignment="Left" Margin="197,156,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="tollBoothCb_SelectionChanged"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="232,207,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="tollBoothTypeTb" HorizontalAlignment="Left" Margin="197,246,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Status" HorizontalAlignment="Left" Margin="226,297,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="tollBoothStatusTb" HorizontalAlignment="Left" Margin="197,331,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="deviceLbl" Content="Device" HorizontalAlignment="Left" Margin="516,107,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <ComboBox x:Name="deviceCb" HorizontalAlignment="Left" Margin="489,156,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="deviceCb_SelectionChanged"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="524,0,0,0" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="deviceTypeTb" HorizontalAlignment="Left" Margin="489,246,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="fixDeviceBtn" Content="Fix" HorizontalAlignment="Left" Margin="507,314,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="85" Height="39" Click="fixDeviceBtn_Click"/>
+
     </Grid>
 </Window>

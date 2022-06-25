@@ -35,5 +35,7 @@ namespace Temp.Core.TollStations.Service
         public void RemoveUser(User user, TollStation tollStation);
 
         public void Delete(TollStation tollStation);
+
+        public TollStation FindByBoss(string jmbg);
     }
 }

@@ -45,5 +45,15 @@ namespace Temp.Core.Devices.Service
             device.Malfunctioning = false;
             Serialize();
         }
+
+        public List<Device> GetAllFromTollBooth(List<int> deviceIds)
+        {
+            List<Device> devices = new();
+            foreach (int deviceId in deviceIds)
+            {
+                devices.Add(FindById(deviceId));
+            }
+            return devices;
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace Temp.Database
             priceListService = new PriceListService(tollBoothDatabase.PriceListRepo);
             sectionService = new SectionService(tollBoothDatabase.SectionRepo);
             speedingPenaltyService = new SpeedingPenaltyService(tollBoothDatabase.SpeedingPenaltyRepo);
-            tollBoothService = new TollBoothService(tollBoothDatabase.TollBoothRepo);
+            tollBoothService = new TollBoothService(tollBoothDatabase.TollBoothRepo, deviceService);
             bossService = new BossService(tollBoothDatabase.BossRepo);
             tollStationService = new TollStationService(tollBoothDatabase.TollStationRepo, bossService);
             tagUserService = new TagUserService(tollBoothDatabase.TagUserRepo);
@@ -64,5 +64,6 @@ namespace Temp.Database
         public ITagUserService TagUserService { get => tagUserService; }
 
         public IUserService UserService { get => userService; }
+        public IDeviceService DeviceService { get => deviceService; set => deviceService = value; }
     }
 }

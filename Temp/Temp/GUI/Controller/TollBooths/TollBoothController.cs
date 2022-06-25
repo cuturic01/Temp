@@ -40,5 +40,15 @@ namespace Temp.GUI.Controller.TollBooths
         {
             tollBoothService.Serialize();
         }
+
+        public void CheckForFixing(TollBooth tollBooth)
+        {
+           tollBoothService.CheckForFixing(tollBooth);
+        }
+
+        public List<TollBooth> GetAllFromStation(TollStation tollStation)
+        {
+            return tollBoothService.GetAllFromStation(tollStation);
+        }
     }
 }
