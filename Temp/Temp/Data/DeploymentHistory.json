@@ -23,5 +23,10 @@
     "bossJmbg": "1020",
     "tollStationId": 1003,
     "deploymentDate": "2022-06-26T14:06:40.9106128+02:00"
+  },
+  {
+    "bossJmbg": "1020",
+    "tollStationId": 1003,
+    "deploymentDate": "2022-06-26T14:40:05.6482664+02:00"
   }
 ]

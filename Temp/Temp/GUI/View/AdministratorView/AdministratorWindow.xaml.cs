@@ -251,7 +251,7 @@ namespace Temp.GUI.View.AdministratorView
 
         private void deleteTollStationBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Delete Room?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Delete Toll station?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 tollStationController.Delete(tollStationController.FindById((int)tollStationCb.SelectedItem));
                 MessageBox.Show("Toll station deleted sucessfully!");
