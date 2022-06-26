@@ -56,5 +56,10 @@ namespace Temp.GUI.Controller.TollBooths
         {
             return tollBoothService.GetAllFromStation(tollStation);
         }
+
+        public void Fix(TollBooth tollBooth)
+        {
+            tollBoothService.Fix(tollBooth);
+        }
     }
 }

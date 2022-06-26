@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Temp.Core.DeploymentHistory.Model;
 using Temp.Core.Users.Model;
 
 namespace Temp.Core.Users.Service
@@ -14,5 +15,9 @@ namespace Temp.Core.Users.Service
         void Load();
 
         void Serialize();
+
+        DeploymentHistoryRecord PutToStation(int stationId, Boss boss);
+
+        void RemoveFromStation(string bossJmbg);
     }
 }

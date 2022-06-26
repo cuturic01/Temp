@@ -37,7 +37,7 @@ namespace Temp.Database
             speedingPenaltyService = new SpeedingPenaltyService(tollBoothDatabase.SpeedingPenaltyRepo);
             tollBoothService = new TollBoothService(tollBoothDatabase.TollBoothRepo, deviceService, tollStationService);
             bossService = new BossService(tollBoothDatabase.BossRepo);
-            tollStationService = new TollStationService(tollBoothDatabase.TollStationRepo, bossService,tollBoothService);
+            tollStationService = new TollStationService(tollBoothDatabase.TollStationRepo, bossService,tollBoothService, sectionService);
             paymentService = new PaymentService(tollBoothDatabase.PaymentRepo, priceListService, tollStationService);
             tagUserService = new TagUserService(tollBoothDatabase.TagUserRepo);
             userService = new UserService(tollBoothDatabase.UserRepo, bossService);

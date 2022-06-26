@@ -22,9 +22,7 @@ using Temp.GUI.Controller.TollStations;
 
 namespace Temp.GUI.View.BossView
 {
-    /// <summary>
-    /// Interaction logic for BossWindow.xaml
-    /// </summary>
+    
     public partial class BossWindow : Window
     {
         ServiceBuilder serviceBuilder;
@@ -58,8 +56,16 @@ namespace Temp.GUI.View.BossView
         {
             TollBooth tollBooth = tollBoothController.FindById(tollStation.Id, (int)tollBoothCb.SelectedItem);
             tollBoothTypeTb.Text = tollBooth.TollBoothType.ToString();
-            if (tollBooth.Malfunctioning) tollBoothStatusTb.Text = "Malfunctioning";
-            else tollBoothStatusTb.Text = "In Function";
+            if (tollBooth.Malfunctioning)
+            {
+                tollBoothStatusTb.Text = "Malfunctioning";
+                enableStationBtn.IsEnabled = true;
+            }
+            else 
+            {
+                tollBoothStatusTb.Text = "In Function";
+                enableStationBtn.IsEnabled = false;
+            } 
         }
 
         void InitializeDevices()
@@ -101,13 +107,12 @@ namespace Temp.GUI.View.BossView
             }
             tollBoothCb.SelectedIndex = 0;
         }
-        #endregion
 
         private void tollBoothCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DisplayTollBoothData();
             InitializeDevices();
-            
+
         }
 
         private void deviceCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -118,9 +123,19 @@ namespace Temp.GUI.View.BossView
         private void fixDeviceBtn_Click(object sender, RoutedEventArgs e)
         {
             deviceController.Fix(deviceController.FindById((int)deviceCb.SelectedItem));
-            tollBoothController.CheckForFixing(tollBoothController.FindById(tollStation.Id, (int)tollBoothCb.SelectedItem));
             DisplayTollBoothData();
             DisplayDeviceData();
         }
+
+        private void enableStationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            tollBoothController.Fix(tollBoothController.FindById(tollStation.Id, (int)tollBoothCb.SelectedItem));
+            DisplayTollBoothData();
+            DisplayDeviceData();
+        }
+
+        #endregion
+
+
     }
 }

@@ -16,12 +16,14 @@ using Temp.Core.PriceLists.Model;
 using Temp.Core.Sections.Model;
 using Temp.Core.TollBooths.Model;
 using Temp.Core.TollStations.Model;
+using Temp.Core.Users.Model;
 using Temp.Database;
 using Temp.GUI.Controller.Locations;
 using Temp.GUI.Controller.PriceLists;
 using Temp.GUI.Controller.Sections;
 using Temp.GUI.Controller.TollBooths;
 using Temp.GUI.Controller.TollStations;
+using Temp.GUI.Controller.Users;
 using Temp.GUI.Dto;
 
 namespace Temp.GUI.View.AdministratorView
@@ -37,6 +39,8 @@ namespace Temp.GUI.View.AdministratorView
         PriceListController priceListController;
         LocationController locationController;
         TollBoothController tollBoothController;
+        BossController bossController;
+
         private Dictionary<int, TollStation> indexedTollStations;
         private Dictionary<int, TollBooth> indexedTollBooths;
 
@@ -52,18 +56,22 @@ namespace Temp.GUI.View.AdministratorView
             InitializeTollBoothCb();
             InitilaizeTollBoothType();
             InitializeTollBoothLb();
+            InitializeTollStationsCb();
         }
 
-
-        #region PriceList
         void InitializeControllers()
         {
-            sectionCotroller = new (serviceBuilder.SectionService);
+            sectionCotroller = new(serviceBuilder.SectionService);
             tollStationController = new(serviceBuilder.TollStationService);
             priceListController = new(serviceBuilder.PriceListService);
             locationController = new(serviceBuilder.LocationService);
             tollBoothController = new(serviceBuilder.TollBoothService);
+            bossController = new(serviceBuilder.BossService);
+
         }
+
+        #region PriceList
+
 
         void InitializeCb()
         {
@@ -154,9 +162,6 @@ namespace Temp.GUI.View.AdministratorView
             }
         }
 
-
-        #endregion
-
         private void createTollBothBtn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -174,7 +179,7 @@ namespace Temp.GUI.View.AdministratorView
             {
                 MessageBox.Show("Number is not valid!");
             }
-            
+
         }
 
 
@@ -206,5 +211,72 @@ namespace Temp.GUI.View.AdministratorView
         {
 
         }
+        #endregion
+
+        #region TollStations
+
+        void InitializeTollStationsCb()
+        {
+            tollStationCb.Items.Clear();
+            foreach (TollStation tollStation in tollStationController.TollStations)
+            {
+                tollStationCb.Items.Add(tollStation.Id);
+            }
+            tollStationCb.SelectedIndex = 0;
+        }
+
+        void DisplayTollStationData()
+        {
+            TollStation tollStation = tollStationController.FindById((int)tollStationCb.SelectedItem);
+            tollStationNameTb.Text = tollStation.Name;
+            Boss boss = bossController.FindByJmbg(tollStation.BossJmbg);
+            tollStationBossTb.Text = boss.Name + " " + boss.LastName;
+            Location location = locationController.FindByZip(tollStation.LocationZip);
+            countryTb.Text = location.Country;
+            cityTb.Text = location.Name;
+        }
+
+        private void tollStationCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tollStationCb.SelectedIndex != -1)
+            {
+                DisplayTollStationData();
+            }
+        }
+
+        private void refreshTollStationsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeTollStationsCb();
+        }
+
+        private void deleteTollStationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Delete Room?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                tollStationController.Delete(tollStationController.FindById((int)tollStationCb.SelectedItem));
+                MessageBox.Show("Toll station deleted sucessfully!");
+                InitializeTollStationsCb();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void updateTollStationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            tollStationController.Update(tollStationNameTb.Text, tollStationController.FindById((int)tollStationCb.SelectedItem));
+            MessageBox.Show("Toll station updated sucessfully!");
+            DisplayTollStationData();
+        }
+
+        private void createTollStationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Window createNewStationWin = new CreateStationWindow(serviceBuilder);
+            createNewStationWin.Show();
+        }
+        #endregion
+
+
     }
 }

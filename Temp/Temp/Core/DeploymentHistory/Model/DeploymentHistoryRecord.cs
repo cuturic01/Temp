@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using Temp.GUI.Dto;
 
 namespace Temp.Core.DeploymentHistory.Model
 {

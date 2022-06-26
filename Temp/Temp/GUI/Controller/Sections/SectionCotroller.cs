@@ -44,5 +44,10 @@ namespace Temp.GUI.Controller.Sections
         {
             return sectionService.GetSectionByStations(entranceId, exitId);
         }
+
+        public void Delete(Section section)
+        {
+            sectionService.Delete(section);
+        }
     }
 }
