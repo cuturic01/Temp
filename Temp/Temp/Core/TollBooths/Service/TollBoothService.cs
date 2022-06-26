@@ -76,6 +76,11 @@ namespace Temp.Core.TollBooths.Service
             return tollBoothRepo.GenerateNum(tollStation);
         }
 
+        public bool AlreadyExist(int stationId, int number)
+        {
+            return tollBoothRepo.AlreadyExist(stationId, number);
+        }
+
         public void Load()
         {
             tollBoothRepo.Load();

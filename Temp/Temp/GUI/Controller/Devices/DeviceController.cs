@@ -50,5 +50,10 @@ namespace Temp.GUI.Controller.Devices
             return deviceService.GetAllFromTollBooth(deviceIds);
         }
 
+        public List<Device> GenerateDevices()
+        {
+            return deviceService.GenerateDevices();
+        }
+
     }
 }

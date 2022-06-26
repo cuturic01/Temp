@@ -20,5 +20,7 @@ namespace Temp.Core.Devices.Service
         void Fix(Device device);
 
         public List<Device> GetAllFromTollBooth(List<int> deviceIds);
+
+        List<Device> GenerateDevices();
     }
 }

@@ -27,6 +27,11 @@ namespace Temp.GUI.Controller.TollBooths
             tollBoothService.Update(tollBoothDto);
         }
 
+        public void Delete(int stationId, int number)
+        {
+            tollBoothService.Delete(stationId,number);
+        }
+
         public TollBooth FindById(int stationId, int boothNumber)
         {
             return tollBoothService.FindById(stationId, boothNumber);
@@ -60,6 +65,11 @@ namespace Temp.GUI.Controller.TollBooths
         public void Fix(TollBooth tollBooth)
         {
             tollBoothService.Fix(tollBooth);
+        }
+
+        public bool AlreadyExist(int stationId, int number)
+        {
+            return tollBoothService.AlreadyExist(stationId, number);
         }
     }
 }

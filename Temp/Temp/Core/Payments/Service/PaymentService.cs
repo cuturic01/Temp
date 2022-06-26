@@ -15,10 +15,11 @@ namespace Temp.Core.Payments.Service
         private IPriceListService priceListService;
         private ITollStationService tollStationService;
 
-        public PaymentService(IPaymentRepo paymentRepo, IPriceListService priceListService, ITollStationService toll)
+        public PaymentService(IPaymentRepo paymentRepo, IPriceListService priceListService, ITollStationService tollStationService)
         {
             this.paymentRepo = paymentRepo;
             this.priceListService = priceListService;
+            this.tollStationService = tollStationService;
         }
 
         public List<Payment> Payments { get => paymentRepo.Payments; }
@@ -73,7 +74,7 @@ namespace Temp.Core.Payments.Service
             float sumEur = 0;
             foreach (Payment payment in Payments)
             {
-                if (payment.BoothNumber == tollStationId && payment.ExitDate>start && payment.ExitDate<end)
+                if (payment.StationId == tollStationId && payment.ExitDate>start && payment.ExitDate<end)
                 {
                     Price price = priceListService.GetPriceBySectionId(payment.SectionId, payment.VehicleType);
                     sumDin += price.PriceDin;

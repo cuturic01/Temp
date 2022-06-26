@@ -36,5 +36,7 @@ namespace Temp.Core.TollBooths.Service
         public void CheckForFixing(TollBooth tollBooth);
 
         public List<TollBooth> GetAllFromStation(TollStation tollStation);
+
+        bool AlreadyExist(int stationId, int number);
     }
 }

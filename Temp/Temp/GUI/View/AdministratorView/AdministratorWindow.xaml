@@ -55,7 +55,7 @@
                     <CheckBox x:Name="malfunctioningTollBoothCh" Content="Malfunctioning" HorizontalAlignment="Left" Margin="153,193,0,0" VerticalAlignment="Top"/>
                     <ListBox x:Name="tollBoothsLb" Margin="335,10,35,45" SelectionChanged="tollBoothsLb_SelectionChanged"/>
                     <Button x:Name="UpdateTollBoothBtn" Content="Update" HorizontalAlignment="Left" Margin="87,309,0,0" VerticalAlignment="Top" Width="154" Click="UpdateTollBoothBtn_Click"/>
-                    <Button x:Name="deleteTollBoothBtn" Content="Delete" HorizontalAlignment="Left" Margin="87,359,0,0" VerticalAlignment="Top" Width="154"/>
+                    <Button x:Name="deleteTollBoothBtn" Content="Delete" HorizontalAlignment="Left" Margin="87,359,0,0" VerticalAlignment="Top" Width="154" Click="deleteTollBoothBtn_Click"/>
                     <Button x:Name="deselectBtn" Content="Deselect" HorizontalAlignment="Left" Margin="516,361,0,0" VerticalAlignment="Top" Click="deselectBtn_Click"/>
                     <Label Content="Number: " HorizontalAlignment="Left" Margin="21,113,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tollBoothNumberTb" HorizontalAlignment="Left" Margin="154,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

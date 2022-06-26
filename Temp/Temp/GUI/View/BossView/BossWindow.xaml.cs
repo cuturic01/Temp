@@ -17,6 +17,7 @@ using Temp.Core.TollStations.Model;
 using Temp.Core.Users.Model;
 using Temp.Database;
 using Temp.GUI.Controller.Devices;
+using Temp.GUI.Controller.Payments;
 using Temp.GUI.Controller.TollBooths;
 using Temp.GUI.Controller.TollStations;
 
@@ -31,6 +32,7 @@ namespace Temp.GUI.View.BossView
         DeviceController deviceController;
         TollBoothController tollBoothController;
         TollStation tollStation;
+        PaymentController paymentController;
 
         public BossWindow(ServiceBuilder serviceBuilder, User boss)
         {
@@ -41,6 +43,10 @@ namespace Temp.GUI.View.BossView
             tollStation = tollStationController.FindByBoss(boss.Jmbg);
             InitializeTollBoothCb();
             stationLbl.Content = tollStation.Name;
+            dinIncomeTb.IsEnabled = false;
+            eurIncomeTb.IsEnabled = false;
+            fromIncomeDp.SelectedDate = DateTime.Now.Date;
+            toIncomeDp.SelectedDate = DateTime.Now.Date;
         }
 
         void InitializeControllers()
@@ -48,6 +54,7 @@ namespace Temp.GUI.View.BossView
             tollStationController = new(serviceBuilder.TollStationService);
             tollBoothController = new(serviceBuilder.TollBoothService);
             deviceController = new(serviceBuilder.DeviceService);
+            paymentController = new(serviceBuilder.PaymentService);
         }
 
         #region TollBoothState
@@ -134,8 +141,27 @@ namespace Temp.GUI.View.BossView
             DisplayDeviceData();
         }
 
+
         #endregion
 
+        #region Report
+        private void SearchIncomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime from = fromIncomeDp.SelectedDate.Value;
+            DateTime to = toIncomeDp.SelectedDate.Value;
+            if (from > to)
+            {
+                MessageBox.Show("Invalid date interval");
+                return;
+            }
+
+            Tuple<float, float> prices = paymentController.FindSumOfPayments(tollStation.Id, from, to);
+            dinIncomeTb.Text = prices.Item1.ToString()+"RSD";
+            eurIncomeTb.Text = prices.Item2.ToString()+"EUR";
+        }
+
+
+        #endregion
 
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Temp.Core.Devices.Model;
 using Temp.Core.Locations.Model;
 using Temp.Core.PriceLists.Model;
 using Temp.Core.Sections.Model;
@@ -18,6 +19,7 @@ using Temp.Core.TollBooths.Model;
 using Temp.Core.TollStations.Model;
 using Temp.Core.Users.Model;
 using Temp.Database;
+using Temp.GUI.Controller.Devices;
 using Temp.GUI.Controller.Locations;
 using Temp.GUI.Controller.PriceLists;
 using Temp.GUI.Controller.Sections;
@@ -40,6 +42,7 @@ namespace Temp.GUI.View.AdministratorView
         LocationController locationController;
         TollBoothController tollBoothController;
         BossController bossController;
+        DeviceController deviceController;
 
         private Dictionary<int, TollStation> indexedTollStations;
         private Dictionary<int, TollBooth> indexedTollBooths;
@@ -57,6 +60,9 @@ namespace Temp.GUI.View.AdministratorView
             InitilaizeTollBoothType();
             InitializeTollBoothLb();
             InitializeTollStationsCb();
+
+            UpdateTollBoothBtn.IsEnabled = false;
+            deleteTollBoothBtn.IsEnabled = false;
         }
 
         void InitializeControllers()
@@ -67,6 +73,7 @@ namespace Temp.GUI.View.AdministratorView
             locationController = new(serviceBuilder.LocationService);
             tollBoothController = new(serviceBuilder.TollBoothService);
             bossController = new(serviceBuilder.BossService);
+            deviceController = new(serviceBuilder.DeviceService);
 
         }
 
@@ -169,10 +176,20 @@ namespace Temp.GUI.View.AdministratorView
                 if (stationIdCb.SelectedIndex != -1 && TollBoothTypeCb.SelectedIndex != -1 && tollBoothNumberTb.Text != "")
                 {
                     int number = Convert.ToInt32(tollBoothNumberTb.Text);
-                    bool malfunctioning = malfunctioningTollBoothCh.IsChecked == true;
-                    TollBoothDto tollBoothDto = new(indexedTollStations[stationIdCb.SelectedIndex].Id, number,
-                        (TollBoothType)TollBoothTypeCb.SelectedItem, malfunctioning, null);
-                    tollBoothController.Add(tollBoothDto);
+                    if (tollBoothController.AlreadyExist(indexedTollStations[stationIdCb.SelectedIndex].Id,number))
+                        MessageBox.Show("Toll booth already exist!");
+                    else
+                    {
+                        bool malfunctioning = malfunctioningTollBoothCh.IsChecked == true;
+                        List<Device> devices = deviceController.GenerateDevices();
+                        List<int> devicesId = new();
+                        foreach (Device device in devices)
+                            devicesId.Add(device.Id);
+                        TollBoothDto tollBoothDto = new(indexedTollStations[stationIdCb.SelectedIndex].Id, number,
+                            (TollBoothType)TollBoothTypeCb.SelectedItem, malfunctioning, devicesId);
+                        tollBoothController.Add(tollBoothDto);
+                    }
+                    
                 }
             }
             catch
@@ -193,10 +210,18 @@ namespace Temp.GUI.View.AdministratorView
             if (tollBoothsLb.SelectedIndex == -1)
             {
                 stationIdCb.IsEnabled = true;
+                createTollBoothBtn.IsEnabled = true;
+                UpdateTollBoothBtn.IsEnabled = false;
+                deleteTollBoothBtn.IsEnabled = false;
+                tollBoothNumberTb.IsEnabled = true;
             }
             else
             {
                 stationIdCb.IsEnabled = false;
+                createTollBoothBtn.IsEnabled = false;
+                UpdateTollBoothBtn.IsEnabled = true;
+                deleteTollBoothBtn.IsEnabled = true;
+                tollBoothNumberTb.IsEnabled = false;
                 TollBooth tollBooth = indexedTollBooths[tollBoothsLb.SelectedIndex];
                 TollStation tollStation = tollStationController.FindById(tollBooth.TollStationId);
                 Location location = locationController.FindByZip(tollStation.LocationZip);
@@ -209,7 +234,32 @@ namespace Temp.GUI.View.AdministratorView
 
         private void UpdateTollBoothBtn_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (stationIdCb.SelectedIndex != -1 && TollBoothTypeCb.SelectedIndex != -1 && tollBoothNumberTb.Text != "")
+                {
+                    int number = Convert.ToInt32(tollBoothNumberTb.Text);
+                    bool malfunctioning = malfunctioningTollBoothCh.IsChecked == true;
+                    List<Device> devices = deviceController.GenerateDevices();
+                    List<int> devicesId = new();
+                    foreach (Device device in devices)
+                        devicesId.Add(device.Id);
+                    TollBoothDto tollBoothDto = new(indexedTollStations[stationIdCb.SelectedIndex].Id, number,
+                        (TollBoothType)TollBoothTypeCb.SelectedItem, malfunctioning, devicesId);
+                    tollBoothController.Update(tollBoothDto);
 
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Number is not valid!");
+            }
+        }
+
+        private void deleteTollBoothBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TollBooth tollBooth = indexedTollBooths[tollBoothsLb.SelectedIndex];
+            tollBoothController.Delete(tollBooth.TollStationId,tollBooth.Number);
         }
         #endregion
 
@@ -275,8 +325,9 @@ namespace Temp.GUI.View.AdministratorView
             Window createNewStationWin = new CreateStationWindow(serviceBuilder);
             createNewStationWin.Show();
         }
+
         #endregion
 
-
+        
     }
 }

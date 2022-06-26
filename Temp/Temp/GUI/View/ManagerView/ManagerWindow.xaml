@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Temp.GUI.View.ManagerView"
         mc:Ignorable="d"
-        Title="ManagerWindow" Height="450" Width="800">
+        Title="ManagerWindow" Height="450" Width="800" FontWeight="Bold">
     <Grid>
-        
+        <DatePicker x:Name="fromIncomeDp" HorizontalAlignment="Left" Margin="103,38,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <DatePicker x:Name="toIncomeDp" HorizontalAlignment="Left" Margin="103,94,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="From: " HorizontalAlignment="Left" Margin="11,37,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="To: " HorizontalAlignment="Left" Margin="11,92,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox x:Name="dinIncomeTb" HorizontalAlignment="Left" Margin="14,281,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" FontSize="18"/>
+        <TextBox x:Name="eurIncomeTb" HorizontalAlignment="Left" Margin="14,325,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" FontSize="18"/>
+        <Button x:Name="SearchIncomeBtn" Content="Search" HorizontalAlignment="Left" Margin="109,176,0,0" VerticalAlignment="Top" Width="130" Click="SearchIncomeBtn_Click" FontSize="18"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="110,235,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <ListBox x:Name="tollStationsIncomeLb" Margin="308,37,24,25"/>
+
+
     </Grid>
 </Window>
