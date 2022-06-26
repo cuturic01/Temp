@@ -136,6 +136,12 @@ namespace Temp.GUI.View.ClerkView
 
         private void CalculateBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (StationsComboBox.SelectedValue == null ||  VehiclesComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Enter all parametars");
+                return;
+            }
+
             int exitId = station.Id;
             int entranceId = int.Parse(StationsComboBox.SelectedValue.ToString());
 
@@ -144,8 +150,21 @@ namespace Temp.GUI.View.ClerkView
             VehicleType vehicleType = (VehicleType)VehiclesComboBox.SelectedIndex;
 
             Price price = priceListController.GetPriceBySectionId(section.Id, vehicleType);
+
     
             PriceText.Text = price.PriceDin.ToString();
+
+            try{
+                int.Parse(EntranceHourBox.Text);
+                int.Parse(EntranceMinBox.Text);
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                return;
+            }
+
 
             DateTime entraceDT = DateTime.Today;
             int hours = int.Parse(EntranceHourBox.Text);
@@ -158,6 +177,8 @@ namespace Temp.GUI.View.ClerkView
             Random rnd = new Random();
             int num = rnd.Next(1, 999);
             string plates = "SM" + num + "AA";
+
+            PlatesText.Text = plates;
                
             int paymentId = paymentController.GenerateId();
             payment = new Payment(paymentId, entraceDT, exitDT, plates, vehicleType, exitId, 1, section.Id);

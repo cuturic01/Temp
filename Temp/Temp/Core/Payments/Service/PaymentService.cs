@@ -43,9 +43,8 @@ namespace Temp.Core.Payments.Service
 
         public float CheckSpeed(Payment payment, float distance)
         {
-            int myHours = (payment.ExitDate - payment.EntranceDate).Hours;
-            int myMinutes = (payment.ExitDate - payment.EntranceDate).Minutes;
-            float myTime = myHours * 60 + myMinutes;
+            TimeSpan ts = payment.ExitDate - payment.EntranceDate;
+            float myTime = ts.Hours * 60 + ts.Minutes;
 
             float speedLimit = 120 / 60;  //km per minut
             float minTime = distance / speedLimit;
