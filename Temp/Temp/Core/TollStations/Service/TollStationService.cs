@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Temp.Core.TollBooths.Model;
+using Temp.Core.TollBooths.Service;
 using Temp.Core.TollStations.Model;
 using Temp.Core.TollStations.Repository;
 using Temp.Core.Users.Model;
@@ -11,13 +12,15 @@ namespace Temp.Core.TollStations.Service
 {
     public class TollStationService : ITollStationService
     {
-        ITollStationRepo tollStationRepo;
-        IBossService bossService;
+        private ITollStationRepo tollStationRepo;
+        private IBossService bossService;
+        private ITollBoothService tollBoothService;
 
-        public TollStationService(ITollStationRepo tollStationRepo, IBossService bossService)
+        public TollStationService(ITollStationRepo tollStationRepo, IBossService bossService,ITollBoothService tollBoothService)
         {
             this.tollStationRepo = tollStationRepo;
             this.bossService = bossService;
+            this.tollBoothService = tollBoothService;
         }
 
         public List<TollStation> TollStations { get => tollStationRepo.TollStations; }
@@ -104,7 +107,10 @@ namespace Temp.Core.TollStations.Service
         {
             TollStations.Remove(tollStation);
             Serialize();
-            // pozvati metodu za brisanje naplatnih mesta
+            foreach (int number in tollStation.TollBooths)
+            {
+                tollBoothService.Delete(tollStation.Id,number);
+            }
         }
 
         public TollStation FindByBoss(string jmbg)

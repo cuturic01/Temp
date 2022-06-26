@@ -4,25 +4,66 @@ using Temp.Core.Devices.Service;
 using Temp.Core.TollBooths.Model;
 using Temp.Core.TollBooths.Repository;
 using Temp.Core.TollStations.Model;
+using Temp.Core.TollStations.Repository;
+using Temp.Core.TollStations.Service;
+using Temp.GUI.Dto;
 
 namespace Temp.Core.TollBooths.Service
 {
     public class TollBoothService : ITollBoothService
     {
-        ITollBoothRepo tollBoothRepo;
-        IDeviceService deviceService;
+        private ITollBoothRepo tollBoothRepo;
+        private IDeviceService deviceService;
+        private ITollStationService tollStationService;
 
-        public TollBoothService(ITollBoothRepo tollBoothRepo, IDeviceService deviceService)
+        public TollBoothService(ITollBoothRepo tollBoothRepo, IDeviceService deviceService, ITollStationService tollStationService)
         {
             this.tollBoothRepo = tollBoothRepo;
             this.deviceService = deviceService;
+            this.tollStationService = tollStationService;
         }
 
         public List<TollBooth> TollBooths { get => tollBoothRepo.TollBooths; }
 
-        public void Add(TollBooth tollBooth)
+        public ITollBoothRepo TollBoothRepo
         {
+            get => tollBoothRepo;
+            set => tollBoothRepo = value;
+        }
+
+        public IDeviceService DeviceService
+        {
+            get => deviceService;
+            set => deviceService = value;
+        }
+
+        public ITollStationService TollStationService
+        {
+            get => tollStationService;
+            set => tollStationService = value;
+        }
+
+        public void Add(TollBoothDto tollBoothDto)
+        {
+            TollBooth tollBooth = new TollBooth(tollBoothDto);
+
             tollBoothRepo.Add(tollBooth);
+        }
+
+        public void Update(TollBoothDto tollBoothDto)
+        {
+            TollBooth tollBooth = FindById(tollBoothDto.TollStationId, tollBoothDto.Number);
+            tollBooth.TollBoothType = tollBoothDto.TollBoothType;
+            tollBooth.Malfunctioning = tollBoothDto.Malfunctioning;
+            tollBooth.Devices = tollBoothDto.Devices;
+            Serialize();
+        }
+
+        public void Delete(int stationId, int number)
+        {
+            TollBooth tollBooth = FindById(stationId, number);
+            tollBoothRepo.Delete(tollBooth);
+            tollStationService.RemoveTollBooth(tollBooth,tollStationService.FindById(stationId));
         }
 
         public TollBooth FindById(int stationId, int boothNumber)

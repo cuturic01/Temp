@@ -10,19 +10,40 @@
         <TabControl>
             <TabItem Header="Price List" FontSize="18" FontWeight="Bold">
                 <Grid Background="#FFE5E5E5">
-                    <Label Content="Price list is active since: " HorizontalAlignment="Left" Margin="36,25,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="startDateLbl" Content="Label" HorizontalAlignment="Left" Margin="253,25,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
-                    <ComboBox x:Name="sectionCb" HorizontalAlignment="Left" Margin="175,116,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="sectionCb_SelectionChanged"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120*"/>
+                        <ColumnDefinition Width="277*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Price list is active since: " HorizontalAlignment="Left" Margin="36,25,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <Label x:Name="startDateLbl" Content="Label" HorizontalAlignment="Left" Margin="13,25,0,0" VerticalAlignment="Top" FontStyle="Italic" Grid.Column="1"/>
+                    <ComboBox x:Name="sectionCb" HorizontalAlignment="Left" Margin="175,116,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="sectionCb_SelectionChanged" Grid.ColumnSpan="2"/>
                     <Label Content="Choose section: " HorizontalAlignment="Left" Margin="23,112,0,0" VerticalAlignment="Top"/>
                     <Label Content="Entry" HorizontalAlignment="Left" Margin="142,204,0,0" VerticalAlignment="Top"/>
                     <Label Content="Exit" HorizontalAlignment="Left" Margin="149,310,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="entryTb" HorizontalAlignment="Left" Margin="92,243,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
-                    <TextBox x:Name="exitTb" HorizontalAlignment="Left" Margin="92,344,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
-                    <ListBox x:Name="priceInformationLb" Margin="378,10,10,10"/>
+                    <TextBox x:Name="entryTb" HorizontalAlignment="Left" Margin="92,243,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="exitTb" HorizontalAlignment="Left" Margin="92,344,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Grid.ColumnSpan="2"/>
+                    <ListBox x:Name="priceInformationLb" Margin="138,10,10,10" Grid.Column="1"/>
+
                 </Grid>
             </TabItem>
             <TabItem Header="Toll Station" FontSize="18" FontWeight="Bold">
                 <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Toll Booth" FontSize="18" FontWeight="Bold">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="createTollBoothBtn" Content="Create" HorizontalAlignment="Left" Margin="87,259,0,0" VerticalAlignment="Top" Width="154" Click="createTollBothBtn_Click"/>
+                    <Label Content="TollStation: " HorizontalAlignment="Left" Margin="21,25,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="stationIdCb" HorizontalAlignment="Left" Margin="153,27,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Type: " HorizontalAlignment="Left" Margin="21,73,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="TollBoothTypeCb" HorizontalAlignment="Left" Margin="153,76,0,0" VerticalAlignment="Top" Width="120"/>
+                    <CheckBox x:Name="malfunctioningTollBoothCh" Content="Malfunctioning" HorizontalAlignment="Left" Margin="153,193,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="tollBoothsLb" Margin="335,10,35,45" SelectionChanged="tollBoothsLb_SelectionChanged"/>
+                    <Button x:Name="UpdateTollBoothBtn" Content="Update" HorizontalAlignment="Left" Margin="87,309,0,0" VerticalAlignment="Top" Width="154" Click="UpdateTollBoothBtn_Click"/>
+                    <Button x:Name="deleteTollBoothBtn" Content="Delete" HorizontalAlignment="Left" Margin="87,359,0,0" VerticalAlignment="Top" Width="154"/>
+                    <Button x:Name="deselectBtn" Content="Deselect" HorizontalAlignment="Left" Margin="516,361,0,0" VerticalAlignment="Top" Click="deselectBtn_Click"/>
+                    <Label Content="Number: " HorizontalAlignment="Left" Margin="21,113,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tollBoothNumberTb" HorizontalAlignment="Left" Margin="154,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

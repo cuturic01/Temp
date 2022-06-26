@@ -45,7 +45,19 @@ namespace Temp.Core.PriceLists.Service
         public Price GetPriceBySectionId(int sectionId, VehicleType vt)
         {
 
-            foreach(Price price in PriceLists[0].Prices)
+            foreach(Price price in GetActive(DateTime.Now).Prices)
+            {
+                if (price.SectionId == sectionId && price.VehicleType1 == vt)
+                    return price;
+            }
+
+            return null;
+        }
+
+        public Price GetPriceBySectionId(int sectionId, VehicleType vt, DateTime date)
+        {
+
+            foreach (Price price in GetActive(date).Prices)
             {
                 if (price.SectionId == sectionId && price.VehicleType1 == vt)
                     return price;

@@ -2,6 +2,7 @@
 using Temp.Core.TollBooths.Model;
 using Temp.Core.TollBooths.Service;
 using Temp.Core.TollStations.Model;
+using Temp.GUI.Dto;
 
 namespace Temp.GUI.Controller.TollBooths
 {
@@ -16,9 +17,14 @@ namespace Temp.GUI.Controller.TollBooths
 
         public List<TollBooth> TollBooths { get => tollBoothService.TollBooths; }
 
-        public void Add(TollBooth tollBooth)
+        public void Add(TollBoothDto tollBoothDto)
         {
-            tollBoothService.Add(tollBooth);
+            tollBoothService.Add(tollBoothDto);
+        }
+
+        public void Update(TollBoothDto tollBoothDto)
+        {
+            tollBoothService.Update(tollBoothDto);
         }
 
         public TollBooth FindById(int stationId, int boothNumber)

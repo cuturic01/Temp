@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Temp.Core.Payments.Model;
 using Temp.Core.Payments.Service;
 
@@ -35,7 +36,6 @@ namespace Temp.GUI.Controller.Payments
             paymentService.Load();
         }
 
-
         public void Serialize()
         {
             paymentService.Serialize();
@@ -44,6 +44,16 @@ namespace Temp.GUI.Controller.Payments
         public float CheckSpeed(Payment payment, float distance)
         {
             return paymentService.CheckSpeed(payment, distance);
+        }
+
+        public Tuple<float, float> FindSumOfPayments(int tollStationId, DateTime start, DateTime end)
+        {
+            return paymentService.FindSumOfPayments(tollStationId, start, end);
+        }
+
+        public Tuple<float, float> FindSumOfPayments(DateTime start, DateTime end)
+        {
+            return paymentService.FindSumOfPayments(start, end);
         }
     }
 }
