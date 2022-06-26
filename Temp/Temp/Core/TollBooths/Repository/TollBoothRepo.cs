@@ -50,5 +50,11 @@ namespace Temp.Core.TollBooths.Repository
             tollBooths.Add(tollBooth);
             Serialize();
         }
+
+        public void Delete(TollBooth tollBooth)
+        {
+            tollBooths.Remove(tollBooth);
+            Serialize();
+        }
     }
 }

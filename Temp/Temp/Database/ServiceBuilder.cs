@@ -32,15 +32,16 @@ namespace Temp.Database
             deploymentHisyoryService = new DeploymentHisyoryService(tollBoothDatabase.DeploymentHistoryRepo);
             deviceService = new DeviceService(tollBoothDatabase.DeviceRepo);
             locationService = new LocationService(tollBoothDatabase.LocationRepo);
-            paymentService = new PaymentService(tollBoothDatabase.PaymentRepo);
             priceListService = new PriceListService(tollBoothDatabase.PriceListRepo);
             sectionService = new SectionService(tollBoothDatabase.SectionRepo);
             speedingPenaltyService = new SpeedingPenaltyService(tollBoothDatabase.SpeedingPenaltyRepo);
-            tollBoothService = new TollBoothService(tollBoothDatabase.TollBoothRepo, deviceService);
+            tollBoothService = new TollBoothService(tollBoothDatabase.TollBoothRepo, deviceService, tollStationService);
             bossService = new BossService(tollBoothDatabase.BossRepo);
-            tollStationService = new TollStationService(tollBoothDatabase.TollStationRepo, bossService);
+            tollStationService = new TollStationService(tollBoothDatabase.TollStationRepo, bossService,tollBoothService);
+            paymentService = new PaymentService(tollBoothDatabase.PaymentRepo, priceListService, tollStationService);
             tagUserService = new TagUserService(tollBoothDatabase.TagUserRepo);
             userService = new UserService(tollBoothDatabase.UserRepo, bossService);
+            tollBoothService.TollStationService = tollStationService;
         }
 
         public IDeploymentHisyoryService DeploymentHisyoryService { get => deploymentHisyoryService; }

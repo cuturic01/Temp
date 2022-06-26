@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Temp.Core.TollBooths.Model;
 using Temp.Core.TollStations.Model;
+using Temp.GUI.Dto;
 
 namespace Temp.Core.TollBooths.Repository
 {
@@ -9,6 +10,8 @@ namespace Temp.Core.TollBooths.Repository
         List<TollBooth> TollBooths { get; }
 
         void Add(TollBooth tollBooth);
+
+        void Delete(TollBooth tollBooth);
 
         TollBooth FindById(int stationId, int boothNumber);
 
