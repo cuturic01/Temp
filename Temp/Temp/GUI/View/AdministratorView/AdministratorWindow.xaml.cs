@@ -63,6 +63,7 @@ namespace Temp.GUI.View.AdministratorView
 
             UpdateTollBoothBtn.IsEnabled = false;
             deleteTollBoothBtn.IsEnabled = false;
+            malfunctioningTollBoothCh.IsChecked = false;
         }
 
         void InitializeControllers()
@@ -188,6 +189,7 @@ namespace Temp.GUI.View.AdministratorView
                         TollBoothDto tollBoothDto = new(indexedTollStations[stationIdCb.SelectedIndex].Id, number,
                             (TollBoothType)TollBoothTypeCb.SelectedItem, malfunctioning, devicesId);
                         tollBoothController.Add(tollBoothDto);
+                        InitializeTollBoothLb();
                     }
                     
                 }
@@ -228,7 +230,7 @@ namespace Temp.GUI.View.AdministratorView
                 stationIdCb.SelectedItem = tollBooth.TollStationId + "-" + location.Municipality;
                 TollBoothTypeCb.SelectedItem = tollBooth.TollBoothType;
                 tollBoothNumberTb.Text = tollBooth.Number.ToString();
-                malfunctioningTollBoothCh.IsChecked = true;
+                malfunctioningTollBoothCh.IsChecked = tollBooth.Malfunctioning;
             }
         }
 
@@ -247,6 +249,7 @@ namespace Temp.GUI.View.AdministratorView
                     TollBoothDto tollBoothDto = new(indexedTollStations[stationIdCb.SelectedIndex].Id, number,
                         (TollBoothType)TollBoothTypeCb.SelectedItem, malfunctioning, devicesId);
                     tollBoothController.Update(tollBoothDto);
+                    InitializeTollBoothLb();
 
                 }
             }
@@ -260,6 +263,7 @@ namespace Temp.GUI.View.AdministratorView
         {
             TollBooth tollBooth = indexedTollBooths[tollBoothsLb.SelectedIndex];
             tollBoothController.Delete(tollBooth.TollStationId,tollBooth.Number);
+            InitializeTollBoothLb();
         }
         #endregion
 
