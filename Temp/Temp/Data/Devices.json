@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1001,
+    "name": "RampA",
+    "malfunctioning": true,
+    "deviceType": 0
+  },
+  {
+    "id": 1002,
+    "name": "SemaphoreA",
+    "malfunctioning": true,
+    "deviceType": 1
+  },
+  {
+    "id": 1003,
+    "name": "TagReaderA",
+    "malfunctioning": false,
+    "deviceType": 2
+  },
+  {
+    "id": 1004,
+    "name": "RampB",
+    "malfunctioning": false,
+    "deviceType": 0
+  },
+  {
+    "id": 1005,
+    "name": "SemaphoreB",
+    "malfunctioning": false,
+    "deviceType": 1
+  },
+  {
+    "id": 1006,
+    "name": "TagReaderB",
+    "malfunctioning": false,
+    "deviceType": 2
+  },
+  {
+    "id": 1007,
+    "name": "RampC",
+    "malfunctioning": false,
+    "deviceType": 0
+  },
+  {
+    "id": 1008,
+    "name": "SemaphoreC",
+    "malfunctioning": false,
+    "deviceType": 1
+  },
+  {
+    "id": 1009,
+    "name": "TagReaderC",
+    "malfunctioning": false,
+    "deviceType": 2
+  },
+  {
+    "id": 1010,
+    "name": "RampD",
+    "malfunctioning": false,
+    "deviceType": 0
+  },
+  {
+    "id": 1011,
+    "name": "SemaphoreD",
+    "malfunctioning": false,
+    "deviceType": 1
+  },
+  {
+    "id": 1012,
+    "name": "TagReaderD",
+    "malfunctioning": false,
+    "deviceType": 2
+  }
+]

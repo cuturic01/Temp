@@ -1,12 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace Temp.Core.Users.Model
 {
-    class Account
+    public class Account
     {
+        string username;
+        string password;
+
+        public Account() { }
+
+        public Account(string username, string password)
+        {
+            this.username = username;
+            this.password = password;
+        }
+
+        [JsonPropertyName("username")]
+        public string Username { get => username; set => username = value; }
+
+        [JsonPropertyName("password")]
+        public string Password { get => password; set => password = value; }
+
+        public override string ToString()
+        {
+            return "Accoutn[username: " + username + ", password: " + password + "]";
+        }
     }
 }

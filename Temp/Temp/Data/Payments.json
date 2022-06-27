@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1001,
+    "entranceDate": "2022-06-05T13:00:00",
+    "exitDate": "2022-06-05T14:00:00",
+    "registrationNumber": "SM005BC",
+    "vehicleType": 0,
+    "stationId": 1002,
+    "boothNumber": 1,
+    "sectionId": 1001
+  },
+  {
+    "id": 1002,
+    "entranceDate": "2022-06-25T16:00:00+02:00",
+    "exitDate": "2022-06-25T16:10:56.4849263+02:00",
+    "registrationNumber": "SM026DT",
+    "vehicleType": 0,
+    "stationId": 1001,
+    "boothNumber": 2,
+    "sectionId": 1001
+  },
+  {
+    "id": 1003,
+    "entranceDate": "2022-06-25T16:00:00+02:00",
+    "exitDate": "2022-06-25T16:12:52.7486682+02:00",
+    "registrationNumber": "SM001DT",
+    "vehicleType": 3,
+    "stationId": 1001,
+    "boothNumber": 1,
+    "sectionId": 1001
+  },
+  {
+    "id": 1004,
+    "entranceDate": "2022-06-25T13:10:00+02:00",
+    "exitDate": "2022-06-25T16:54:18.0864739+02:00",
+    "registrationNumber": "SM205AA",
+    "vehicleType": 1,
+    "stationId": 1001,
+    "boothNumber": 1,
+    "sectionId": 1001
+  },
+  {
+    "id": 1005,
+    "entranceDate": "2022-06-25T16:30:00+02:00",
+    "exitDate": "2022-06-25T16:54:30.5447573+02:00",
+    "registrationNumber": "SM152AA",
+    "vehicleType": 1,
+    "stationId": 1001,
+    "boothNumber": 1,
+    "sectionId": 1001
+  },
+  {
+    "id": 1006,
+    "entranceDate": "2022-06-25T17:00:00+02:00",
+    "exitDate": "2022-06-25T17:26:51.0513307+02:00",
+    "registrationNumber": "SM329AA",
+    "vehicleType": 1,
+    "stationId": 1001,
+    "boothNumber": 1,
+    "sectionId": 1001
+  }
+]

@@ -1,0 +1,14 @@
+﻿[
+  {
+    "id": 1001,
+    "entranceStation": 1001,
+    "exitStation": 1002,
+    "distance": 100.0
+  },
+  {
+    "id": 1001,
+    "entranceStation": 1002,
+    "exitStation": 1001,
+    "distance": 100.0
+  }
+]

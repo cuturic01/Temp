@@ -1,0 +1,38 @@
+﻿[
+  {
+    "id": 1001,
+    "startDate": "2022-01-01",
+    "prices": [
+      {
+        "sectionId": 1001,
+        "priceDin": 1200,
+        "priceEur": 10,
+        "vehicleType": 0
+      },
+      {
+        "sectionId": 1001,
+        "priceDin": 1200,
+        "priceEur": 10,
+        "vehicleType": 1
+      },
+      {
+        "sectionId": 1001,
+        "priceDin": 1200,
+        "priceEur": 10,
+        "vehicleType": 2
+      },
+      {
+        "sectionId": 1001,
+        "priceDin": 1200,
+        "priceEur": 10,
+        "vehicleType": 3
+      },
+      {
+        "sectionId": 1001,
+        "priceDin": 1200,
+        "priceEur": 10,
+        "vehicleType": 4
+      }
+    ]
+  }
+]

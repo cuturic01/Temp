@@ -1,0 +1,38 @@
+﻿[
+  {
+    "jmbg": "1005",
+    "name": "Pera",
+    "lastName": "Peric",
+    "phone": "0626554",
+    "mail": "nbtno@eee.com",
+    "adress": {
+      "street": "Eee, eee",
+      "streetNumber": 11,
+      "locationZip": "1001"
+    },
+    "userType": 4,
+    "account": {
+      "username": "eee",
+      "password": "123"
+    },
+    "tollStationId": 1001
+  },
+  {
+    "jmbg": "1007",
+    "name": "Zika",
+    "lastName": "Zikic",
+    "phone": "065842165",
+    "mail": "nbtno@jjj.com",
+    "adress": {
+      "street": "Jjj, jjj",
+      "streetNumber": 15,
+      "locationZip": "1002"
+    },
+    "userType": 4,
+    "account": {
+      "username": "uuu",
+      "password": "123"
+    },
+    "tollStationId": 1002
+  }
+]
