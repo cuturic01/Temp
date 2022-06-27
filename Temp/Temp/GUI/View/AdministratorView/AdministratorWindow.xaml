@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Temp.GUI.View.AdministratorView"
         mc:Ignorable="d"
-        Title="AdministratorWindow" Height="450" Width="800">
+        Title="AdministratorWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <TabControl>
             <TabItem Header="Price List" FontSize="18" FontWeight="Bold">

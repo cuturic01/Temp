@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Temp.GUI.View.ManagerView"
         mc:Ignorable="d"
-        Title="ManagerWindow" Height="450" Width="800" FontWeight="Bold">
+        Title="ManagerWindow" Height="450" Width="800" FontWeight="Bold" Closing="Window_Closing">
     <Grid>
         <DatePicker x:Name="fromIncomeDp" HorizontalAlignment="Left" Margin="103,38,0,0" VerticalAlignment="Top" FontSize="18"/>
         <DatePicker x:Name="toIncomeDp" HorizontalAlignment="Left" Margin="103,94,0,0" VerticalAlignment="Top" FontSize="18"/>
