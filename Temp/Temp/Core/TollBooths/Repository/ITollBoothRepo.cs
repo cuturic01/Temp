@@ -20,5 +20,7 @@ namespace Temp.Core.TollBooths.Repository
         void Load();
 
         void Serialize();
+
+        bool AlreadyExist(int stationId, int number);
     }
 }

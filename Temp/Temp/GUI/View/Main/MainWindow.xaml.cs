@@ -61,7 +61,7 @@ namespace Temp
             }
             else if (user.UserType == UserType.MANAGER)
             {
-                ManagerWindow managerWindow = new();
+                ManagerWindow managerWindow = new(serviceBuilder);
                 managerWindow.Show();
                 Close();
             }

@@ -55,5 +55,20 @@ namespace Temp.Core.Devices.Service
             }
             return devices;
         }
+
+        public List<Device> GenerateDevices()
+        {
+            List<Device> devices = new();
+            Device ramp = new Device(GenerateId(), "Ramp", false, DeviceType.RAMP);
+            Device semaphore = new Device(GenerateId(), "Semaphore", false, DeviceType.SEMAPHORE);
+            Device tagReader = new Device(GenerateId(), "Tag Reader", false, DeviceType.TAG_READER);
+            deviceRepo.Add(ramp);
+            deviceRepo.Add(semaphore);
+            deviceRepo.Add(tagReader);
+            devices.Add(ramp);
+            devices.Add(semaphore);
+            devices.Add(tagReader);
+            return devices;
+        }
     }
 }
