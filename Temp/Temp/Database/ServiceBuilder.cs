@@ -67,6 +67,5 @@ namespace Temp.Database
         public ITagUserService TagUserService { get => tagUserService; }
 
         public IUserService UserService { get => userService; }
-        public IDeviceService DeviceService { get => deviceService; set => deviceService = value; }
     }
 }
