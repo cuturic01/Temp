@@ -90,7 +90,7 @@ namespace Temp.Core.TollBooths.Service
         {
             tollBoothRepo.Serialize();
         }
-
+        
         public void Fix(TollBooth tollBooth)
         {
             tollBooth.Malfunctioning = false;
@@ -120,6 +120,30 @@ namespace Temp.Core.TollBooths.Service
                 tollBooths.Add(FindById(tollStation.Id, tollBoothNumber));
             }
             return tollBooths;
+        }
+        
+        public Device FindBoothRamp(int stationId, int boothNumber)
+        {
+            TollBooth tollBooth = FindById(stationId, boothNumber);
+            foreach (int deviceId in tollBooth.Devices)
+            {
+                Device device = deviceService.FindById(deviceId);
+                if (device.DeviceType == DeviceType.RAMP)
+                    return device;
+            }
+
+            return null;
+        }
+
+        public List<Device> DevicesByBooth(int stationId, int boothNumber)
+        {
+            List<Device> filtered = new();
+
+            TollBooth tollBooth = FindById(stationId, boothNumber);
+            foreach (int deviceId in tollBooth.Devices)
+                filtered.Add(deviceService.FindById(deviceId));
+
+            return filtered;
         }
     }
 }

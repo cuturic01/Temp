@@ -70,5 +70,12 @@ namespace Temp.Core.Devices.Service
             devices.Add(tagReader);
             return devices;
         }
+        
+        public void SetMalfunctionig(int deviceId, bool malfunctioning)
+        {
+            Device device = FindById(deviceId);
+            device.Malfunctioning = malfunctioning;
+            Serialize();
+        }
     }
 }

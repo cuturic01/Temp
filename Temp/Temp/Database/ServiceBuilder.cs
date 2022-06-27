@@ -46,6 +46,8 @@ namespace Temp.Database
 
         public IDeploymentHisyoryService DeploymentHisyoryService { get => deploymentHisyoryService; }
 
+        public IDeviceService DeviceService { get => deviceService; set => deviceService = value; }
+
         public ILocationService LocationService { get => locationService; }
 
         public IPaymentService PaymentService { get => paymentService; }

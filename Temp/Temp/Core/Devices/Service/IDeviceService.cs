@@ -22,5 +22,7 @@ namespace Temp.Core.Devices.Service
         public List<Device> GetAllFromTollBooth(List<int> deviceIds);
 
         List<Device> GenerateDevices();
+      
+        void SetMalfunctionig(int deviceId, bool malfunctioning);
     }
 }

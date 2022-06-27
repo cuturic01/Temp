@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Temp.Core.Devices.Model;
 using Temp.Core.Devices.Service;
 using Temp.Core.TollBooths.Model;
 using Temp.Core.TollBooths.Repository;
@@ -38,5 +39,9 @@ namespace Temp.Core.TollBooths.Service
         public List<TollBooth> GetAllFromStation(TollStation tollStation);
 
         bool AlreadyExist(int stationId, int number);
+      
+        Device FindBoothRamp(int stationId, int boothNumber);
+
+        List<Device> DevicesByBooth(int stationId, int boothNumber);
     }
 }

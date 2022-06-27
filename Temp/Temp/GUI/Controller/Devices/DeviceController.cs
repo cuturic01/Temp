@@ -54,6 +54,10 @@ namespace Temp.GUI.Controller.Devices
         {
             return deviceService.GenerateDevices();
         }
+        public void SetMalfunctionig(int deviceId, bool malfunctioning)
+        {
+            deviceService.SetMalfunctionig(deviceId, malfunctioning);
+        }
 
     }
 }

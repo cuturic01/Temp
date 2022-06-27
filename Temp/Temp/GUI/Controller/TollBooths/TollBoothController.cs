@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Temp.Core.Devices.Model;
 using Temp.Core.TollBooths.Model;
 using Temp.Core.TollBooths.Service;
 using Temp.Core.TollStations.Model;
@@ -70,6 +71,15 @@ namespace Temp.GUI.Controller.TollBooths
         public bool AlreadyExist(int stationId, int number)
         {
             return tollBoothService.AlreadyExist(stationId, number);
+        }
+        public Device FindBoothRamp(int stationId, int boothId)
+        {
+            return tollBoothService.FindBoothRamp(stationId, boothId);
+        }
+
+        public List<Device> DevicesByBooth(int stationId, int boothNumber)
+        {
+            return tollBoothService.DevicesByBooth(stationId, boothNumber);
         }
     }
 }
