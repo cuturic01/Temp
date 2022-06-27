@@ -68,5 +68,15 @@ namespace Temp.GUI.View.ManagerView
                 tollStationsIncomeLb.Items.Add(price.Item1+"RSD"+"\t"+price.Item2+"EUR"+"\t"+ tollStation.Id + "-" + location.Municipality);
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Log out?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+            }
+            else e.Cancel = true;
+        }
     }
 }
