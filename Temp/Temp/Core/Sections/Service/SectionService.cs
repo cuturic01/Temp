@@ -51,5 +51,11 @@ namespace Temp.Core.Sections.Service
             return null;
         }
 
+        public void Delete(Section section)
+        {
+            sectionRepo.Delete(section);
+        }
+
+
     }
 }

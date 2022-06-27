@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Temp.GUI.Dto;
 
 namespace Temp.Core.TollBooths.Model
 {
@@ -24,6 +25,15 @@ namespace Temp.Core.TollBooths.Model
             this.tollBoothType = tollBoothType;
             this.malfunctioning = malfunctioning;
             this.devices = devices;
+        }
+
+        public TollBooth(TollBoothDto tollBoothDto)
+        {
+            this.tollStationId = tollBoothDto.TollStationId;
+            this.number = tollBoothDto.Number;
+            this.tollBoothType = tollBoothDto.TollBoothType;
+            this.malfunctioning = tollBoothDto.Malfunctioning;
+            this.devices = tollBoothDto.Devices;
         }
 
         [JsonPropertyName("tollStationId")]

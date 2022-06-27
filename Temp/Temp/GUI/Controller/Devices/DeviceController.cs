@@ -39,6 +39,21 @@ namespace Temp.GUI.Controller.Devices
         {
             deviceService.Serialize();
         }
+
+        public void Fix(Device device)
+        {
+            deviceService.Fix(device);
+        }
+
+        public List<Device> GetAllFromTollBooth(List<int> deviceIds)
+        {
+            return deviceService.GetAllFromTollBooth(deviceIds);
+        }
+
+        public List<Device> GenerateDevices()
+        {
+            return deviceService.GenerateDevices();
+        }
         public void SetMalfunctionig(int deviceId, bool malfunctioning)
         {
             deviceService.SetMalfunctionig(deviceId, malfunctioning);

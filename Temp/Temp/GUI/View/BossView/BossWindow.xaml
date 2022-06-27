@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Temp.GUI.View.BossView"
         mc:Ignorable="d"
-        Title="BossWindow" Height="450" Width="800">
+        Title="BossWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
-        
+
+        <TabControl>
+            <TabItem Header="Tollbooths" FontSize="18" FontWeight="Bold">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="stationLbl" Content="Label" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+                    <Label Content="Toll booth" HorizontalAlignment="Left" Margin="209,107,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                    <ComboBox x:Name="tollBoothCb" HorizontalAlignment="Left" Margin="197,156,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="tollBoothCb_SelectionChanged"/>
+                    <Label Content="Type" HorizontalAlignment="Left" Margin="232,193,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                    <TextBox x:Name="tollBoothTypeTb" HorizontalAlignment="Left" Margin="197,227,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" FontWeight="Bold"/>
+                    <Label Content="Status" HorizontalAlignment="Left" Margin="226,258,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                    <TextBox x:Name="tollBoothStatusTb" HorizontalAlignment="Left" Margin="197,286,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" FontWeight="Bold"/>
+                    <Label x:Name="deviceLbl" Content="Device" HorizontalAlignment="Left" Margin="516,107,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                    <ComboBox x:Name="deviceCb" HorizontalAlignment="Left" Margin="489,156,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="deviceCb_SelectionChanged"/>
+                    <Label Content="Type" HorizontalAlignment="Left" Margin="524,0,0,0" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                    <TextBox x:Name="deviceTypeTb" HorizontalAlignment="Left" Margin="489,246,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" FontWeight="Bold"/>
+                    <Button x:Name="fixDeviceBtn" Content="Fix" HorizontalAlignment="Left" Margin="506,296,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="86" Height="39" Click="fixDeviceBtn_Click"/>
+                    <Button x:Name="enableStationBtn" Content="Enable" HorizontalAlignment="Left" Margin="215,326,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="85" Height="39" Click="enableStationBtn_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Report" FontSize="18" FontWeight="Bold">
+                <Grid Background="#FFE5E5E5">
+                    <DatePicker x:Name="fromIncomeDp" HorizontalAlignment="Left" Margin="103,38,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="toIncomeDp" HorizontalAlignment="Left" Margin="103,94,0,0" VerticalAlignment="Top"/>
+                    <Label Content="From: " HorizontalAlignment="Left" Margin="11,37,0,0" VerticalAlignment="Top"/>
+                    <Label Content="To: " HorizontalAlignment="Left" Margin="11,92,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="dinIncomeTb" HorizontalAlignment="Center" Margin="0,281,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
+                    <TextBox x:Name="eurIncomeTb" HorizontalAlignment="Center" Margin="0,325,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="244"/>
+                    <Button x:Name="SearchIncomeBtn" Content="Search" HorizontalAlignment="Left" Margin="109,176,0,0" VerticalAlignment="Top" Width="130" Click="SearchIncomeBtn_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

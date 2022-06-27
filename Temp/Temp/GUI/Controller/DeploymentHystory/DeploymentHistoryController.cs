@@ -4,11 +4,11 @@ using Temp.Core.DeploymentHistory.Service;
 
 namespace Temp.GUI.Controller.DeploymentHystory
 {
-    class DeploymentHystoryController
+    class DeploymentHistoryController
     {
         IDeploymentHisyoryService deploymentHisyoryService;
 
-        public DeploymentHystoryController(IDeploymentHisyoryService deploymentHisyoryService)
+        public DeploymentHistoryController(IDeploymentHisyoryService deploymentHisyoryService)
         {
             this.deploymentHisyoryService = deploymentHisyoryService;
         }

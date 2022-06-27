@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Temp.Core.DeploymentHistory.Model;
 using Temp.Core.DeploymentHistory.Repository;
+using Temp.GUI.Dto;
 
 namespace Temp.Core.DeploymentHistory.Service
 {

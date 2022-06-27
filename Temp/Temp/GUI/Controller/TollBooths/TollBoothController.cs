@@ -3,6 +3,7 @@ using Temp.Core.Devices.Model;
 using Temp.Core.TollBooths.Model;
 using Temp.Core.TollBooths.Service;
 using Temp.Core.TollStations.Model;
+using Temp.GUI.Dto;
 
 namespace Temp.GUI.Controller.TollBooths
 {
@@ -17,9 +18,19 @@ namespace Temp.GUI.Controller.TollBooths
 
         public List<TollBooth> TollBooths { get => tollBoothService.TollBooths; }
 
-        public void Add(TollBooth tollBooth)
+        public void Add(TollBoothDto tollBoothDto)
         {
-            tollBoothService.Add(tollBooth);
+            tollBoothService.Add(tollBoothDto);
+        }
+
+        public void Update(TollBoothDto tollBoothDto)
+        {
+            tollBoothService.Update(tollBoothDto);
+        }
+
+        public void Delete(int stationId, int number)
+        {
+            tollBoothService.Delete(stationId,number);
         }
 
         public TollBooth FindById(int stationId, int boothNumber)
@@ -42,6 +53,25 @@ namespace Temp.GUI.Controller.TollBooths
             tollBoothService.Serialize();
         }
 
+        public void CheckForFixing(TollBooth tollBooth)
+        {
+           tollBoothService.CheckForFixing(tollBooth);
+        }
+
+        public List<TollBooth> GetAllFromStation(TollStation tollStation)
+        {
+            return tollBoothService.GetAllFromStation(tollStation);
+        }
+
+        public void Fix(TollBooth tollBooth)
+        {
+            tollBoothService.Fix(tollBooth);
+        }
+
+        public bool AlreadyExist(int stationId, int number)
+        {
+            return tollBoothService.AlreadyExist(stationId, number);
+        }
         public Device FindBoothRamp(int stationId, int boothId)
         {
             return tollBoothService.FindBoothRamp(stationId, boothId);

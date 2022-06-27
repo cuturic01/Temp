@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Temp.Core.PriceLists.Model;
 using Temp.Core.PriceLists.Service;
 
@@ -43,6 +44,16 @@ namespace Temp.GUI.Controller.PriceLists
         public Price GetPriceBySectionId(int sectionId, VehicleType vt)
         {
             return priceListService.GetPriceBySectionId(sectionId, vt);
+        }
+
+        public PriceList GetActive(DateTime date)
+        {
+            return priceListService.GetActive(date);
+        }
+
+        public List<Price> GetPricesBySection(int sectionId)
+        {
+            return priceListService.GetPricesBySection(sectionId);
         }
     }
 }

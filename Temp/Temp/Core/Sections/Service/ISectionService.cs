@@ -18,5 +18,7 @@ namespace Temp.Core.Sections.Service
         void Serialize();
 
         Section GetSectionByStations(int entranceId, int exitId);
+
+        void Delete(Section section);
     }
 }

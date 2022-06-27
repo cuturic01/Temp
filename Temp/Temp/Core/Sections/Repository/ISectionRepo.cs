@@ -16,5 +16,7 @@ namespace Temp.Core.Sections.Repository
         void Load();
 
         void Serialize();
+
+        void Delete(Section section);
     }
 }

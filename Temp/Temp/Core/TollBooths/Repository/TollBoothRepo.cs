@@ -50,5 +50,23 @@ namespace Temp.Core.TollBooths.Repository
             tollBooths.Add(tollBooth);
             Serialize();
         }
+
+        public void Delete(TollBooth tollBooth)
+        {
+            tollBooths.Remove(tollBooth);
+            Serialize();
+        }
+
+        public bool AlreadyExist(int stationId, int number)
+        {
+            foreach (TollBooth tollBooth in tollBooths)
+            {
+                if (tollBooth.TollStationId == stationId && tollBooth.Number == number)
+                    return false;
+            }
+
+            return true;
+        }
+        
     }
 }

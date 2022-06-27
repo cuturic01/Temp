@@ -1,12 +1,32 @@
-﻿[
+[
   {
     "bossJmbg": "1005",
     "tollStationId": 1001,
-    "deploymentDate": "2022-01-01"
+    "deploymentDate": "2022-01-01T00:00:00"
   },
   {
     "bossJmbg": "1007",
     "tollStationId": 1002,
-    "deploymentDate": "2022-01-01"
+    "deploymentDate": "2022-01-01T00:00:00"
+  },
+  {
+    "bossJmbg": "1020",
+    "tollStationId": 1003,
+    "deploymentDate": "2022-06-26T13:34:20.9805489+02:00"
+  },
+  {
+    "bossJmbg": "1020",
+    "tollStationId": 1003,
+    "deploymentDate": "2022-06-26T14:01:17.7844429+02:00"
+  },
+  {
+    "bossJmbg": "1020",
+    "tollStationId": 1003,
+    "deploymentDate": "2022-06-26T14:06:40.9106128+02:00"
+  },
+  {
+    "bossJmbg": "1020",
+    "tollStationId": 1003,
+    "deploymentDate": "2022-06-26T14:40:05.6482664+02:00"
   }
 ]

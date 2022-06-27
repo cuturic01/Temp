@@ -1,18 +1,30 @@
-﻿[
+[
   {
     "id": 1001,
     "name": "Station A",
     "bossJmbg": "1005",
     "locationZip": "1001",
-    "users": [ "1001", "1002" ],
-    "tollBooths": [ 1, 2 ]
+    "users": [
+      "1001",
+      "1002"
+    ],
+    "tollBooths": [
+      1,
+      2
+    ]
   },
   {
     "id": 1002,
     "name": "Station B",
     "bossJmbg": "1007",
     "locationZip": "1002",
-    "users": [ "1003", "1004" ],
-    "tollBooths": [ 1, 2 ]
+    "users": [
+      "1003",
+      "1004"
+    ],
+    "tollBooths": [
+      1,
+      2
+    ]
   }
 ]

@@ -49,5 +49,11 @@ namespace Temp.Core.Sections.Repository
             sections.Add(section);
             Serialize();
         }
+
+        public void Delete(Section section)
+        {
+            sections.Remove(section);
+            Serialize();
+        }
     }
 }

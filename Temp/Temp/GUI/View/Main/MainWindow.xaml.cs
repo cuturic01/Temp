@@ -42,13 +42,13 @@ namespace Temp
             }
             else if (user.UserType == UserType.ADMINISTRATOR)
             {
-                AdministratorWindow administratorWindow = new();
+                AdministratorWindow administratorWindow = new(serviceBuilder);
                 administratorWindow.Show();
                 Close();
             }
             else if (user.UserType == UserType.BOSS)
             {
-                BossWindow bossWindow = new();
+                BossWindow bossWindow = new(serviceBuilder, user);
                 bossWindow.Show();
                 Close();
             }
@@ -61,7 +61,7 @@ namespace Temp
             }
             else if (user.UserType == UserType.MANAGER)
             {
-                ManagerWindow managerWindow = new();
+                ManagerWindow managerWindow = new(serviceBuilder);
                 managerWindow.Show();
                 Close();
             }
